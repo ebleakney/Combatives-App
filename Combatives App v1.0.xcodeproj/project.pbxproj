@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6528D8712B50527F00B7BFFA /* Combatives_App_v1_0App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6528D8702B50527F00B7BFFA /* Combatives_App_v1_0App.swift */; };
+		6528D8732B50527F00B7BFFA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6528D8722B50527F00B7BFFA /* ContentView.swift */; };
+		6528D8752B50528200B7BFFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6528D8742B50528200B7BFFA /* Assets.xcassets */; };
+		6528D8782B50528200B7BFFA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6528D8772B50528200B7BFFA /* Preview Assets.xcassets */; };
+		6528D8822B50528200B7BFFA /* Combatives_App_v1_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6528D8812B50528200B7BFFA /* Combatives_App_v1_0Tests.swift */; };
+		6528D88C2B50528200B7BFFA /* Combatives_App_v1_0UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6528D88B2B50528200B7BFFA /* Combatives_App_v1_0UITests.swift */; };
+		6528D88E2B50528200B7BFFA /* Combatives_App_v1_0UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6528D88D2B50528200B7BFFA /* Combatives_App_v1_0UITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6528D87E2B50528200B7BFFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6528D8652B50527F00B7BFFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6528D86C2B50527F00B7BFFA;
+			remoteInfo = "Combatives App v1.0";
+		};
+		6528D8882B50528200B7BFFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6528D8652B50527F00B7BFFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6528D86C2B50527F00B7BFFA;
+			remoteInfo = "Combatives App v1.0";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6528D86D2B50527F00B7BFFA /* Combatives App v1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Combatives App v1.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6528D8702B50527F00B7BFFA /* Combatives_App_v1_0App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combatives_App_v1_0App.swift; sourceTree = "<group>"; };
+		6528D8722B50527F00B7BFFA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6528D8742B50528200B7BFFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6528D8772B50528200B7BFFA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6528D87D2B50528200B7BFFA /* Combatives App v1.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Combatives App v1.0Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6528D8812B50528200B7BFFA /* Combatives_App_v1_0Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combatives_App_v1_0Tests.swift; sourceTree = "<group>"; };
+		6528D8872B50528200B7BFFA /* Combatives App v1.0UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Combatives App v1.0UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6528D88B2B50528200B7BFFA /* Combatives_App_v1_0UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combatives_App_v1_0UITests.swift; sourceTree = "<group>"; };
+		6528D88D2B50528200B7BFFA /* Combatives_App_v1_0UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combatives_App_v1_0UITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6528D86A2B50527F00B7BFFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6528D87A2B50528200B7BFFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6528D8842B50528200B7BFFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6528D8642B50527F00B7BFFA = {
+			isa = PBXGroup;
+			children = (
+				6528D86F2B50527F00B7BFFA /* Combatives App v1.0 */,
+				6528D8802B50528200B7BFFA /* Combatives App v1.0Tests */,
+				6528D88A2B50528200B7BFFA /* Combatives App v1.0UITests */,
+				6528D86E2B50527F00B7BFFA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6528D86E2B50527F00B7BFFA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6528D86D2B50527F00B7BFFA /* Combatives App v1.0.app */,
+				6528D87D2B50528200B7BFFA /* Combatives App v1.0Tests.xctest */,
+				6528D8872B50528200B7BFFA /* Combatives App v1.0UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6528D86F2B50527F00B7BFFA /* Combatives App v1.0 */ = {
+			isa = PBXGroup;
+			children = (
+				6528D8702B50527F00B7BFFA /* Combatives_App_v1_0App.swift */,
+				6528D8722B50527F00B7BFFA /* ContentView.swift */,
+				6528D8742B50528200B7BFFA /* Assets.xcassets */,
+				6528D8762B50528200B7BFFA /* Preview Content */,
+			);
+			path = "Combatives App v1.0";
+			sourceTree = "<group>";
+		};
+		6528D8762B50528200B7BFFA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				6528D8772B50528200B7BFFA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6528D8802B50528200B7BFFA /* Combatives App v1.0Tests */ = {
+			isa = PBXGroup;
+			children = (
+				6528D8812B50528200B7BFFA /* Combatives_App_v1_0Tests.swift */,
+			);
+			path = "Combatives App v1.0Tests";
+			sourceTree = "<group>";
+		};
+		6528D88A2B50528200B7BFFA /* Combatives App v1.0UITests */ = {
+			isa = PBXGroup;
+			children = (
+				6528D88B2B50528200B7BFFA /* Combatives_App_v1_0UITests.swift */,
+				6528D88D2B50528200B7BFFA /* Combatives_App_v1_0UITestsLaunchTests.swift */,
+			);
+			path = "Combatives App v1.0UITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6528D86C2B50527F00B7BFFA /* Combatives App v1.0 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6528D8912B50528200B7BFFA /* Build configuration list for PBXNativeTarget "Combatives App v1.0" */;
+			buildPhases = (
+				6528D8692B50527F00B7BFFA /* Sources */,
+				6528D86A2B50527F00B7BFFA /* Frameworks */,
+				6528D86B2B50527F00B7BFFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Combatives App v1.0";
+			productName = "Combatives App v1.0";
+			productReference = 6528D86D2B50527F00B7BFFA /* Combatives App v1.0.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6528D87C2B50528200B7BFFA /* Combatives App v1.0Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6528D8942B50528200B7BFFA /* Build configuration list for PBXNativeTarget "Combatives App v1.0Tests" */;
+			buildPhases = (
+				6528D8792B50528200B7BFFA /* Sources */,
+				6528D87A2B50528200B7BFFA /* Frameworks */,
+				6528D87B2B50528200B7BFFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6528D87F2B50528200B7BFFA /* PBXTargetDependency */,
+			);
+			name = "Combatives App v1.0Tests";
+			productName = "Combatives App v1.0Tests";
+			productReference = 6528D87D2B50528200B7BFFA /* Combatives App v1.0Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6528D8862B50528200B7BFFA /* Combatives App v1.0UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6528D8972B50528200B7BFFA /* Build configuration list for PBXNativeTarget "Combatives App v1.0UITests" */;
+			buildPhases = (
+				6528D8832B50528200B7BFFA /* Sources */,
+				6528D8842B50528200B7BFFA /* Frameworks */,
+				6528D8852B50528200B7BFFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6528D8892B50528200B7BFFA /* PBXTargetDependency */,
+			);
+			name = "Combatives App v1.0UITests";
+			productName = "Combatives App v1.0UITests";
+			productReference = 6528D8872B50528200B7BFFA /* Combatives App v1.0UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6528D8652B50527F00B7BFFA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					6528D86C2B50527F00B7BFFA = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					6528D87C2B50528200B7BFFA = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 6528D86C2B50527F00B7BFFA;
+					};
+					6528D8862B50528200B7BFFA = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 6528D86C2B50527F00B7BFFA;
+					};
+				};
+			};
+			buildConfigurationList = 6528D8682B50527F00B7BFFA /* Build configuration list for PBXProject "Combatives App v1.0" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6528D8642B50527F00B7BFFA;
+			productRefGroup = 6528D86E2B50527F00B7BFFA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6528D86C2B50527F00B7BFFA /* Combatives App v1.0 */,
+				6528D87C2B50528200B7BFFA /* Combatives App v1.0Tests */,
+				6528D8862B50528200B7BFFA /* Combatives App v1.0UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6528D86B2B50527F00B7BFFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6528D8782B50528200B7BFFA /* Preview Assets.xcassets in Resources */,
+				6528D8752B50528200B7BFFA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6528D87B2B50528200B7BFFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6528D8852B50528200B7BFFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6528D8692B50527F00B7BFFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6528D8732B50527F00B7BFFA /* ContentView.swift in Sources */,
+				6528D8712B50527F00B7BFFA /* Combatives_App_v1_0App.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6528D8792B50528200B7BFFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6528D8822B50528200B7BFFA /* Combatives_App_v1_0Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6528D8832B50528200B7BFFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6528D88C2B50528200B7BFFA /* Combatives_App_v1_0UITests.swift in Sources */,
+				6528D88E2B50528200B7BFFA /* Combatives_App_v1_0UITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6528D87F2B50528200B7BFFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6528D86C2B50527F00B7BFFA /* Combatives App v1.0 */;
+			targetProxy = 6528D87E2B50528200B7BFFA /* PBXContainerItemProxy */;
+		};
+		6528D8892B50528200B7BFFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6528D86C2B50527F00B7BFFA /* Combatives App v1.0 */;
+			targetProxy = 6528D8882B50528200B7BFFA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6528D88F2B50528200B7BFFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6528D8902B50528200B7BFFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6528D8922B50528200B7BFFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Combatives App v1.0/Preview Content\"";
+				DEVELOPMENT_TEAM = G27W3B33FR;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Huber-Bleakney-CombativesApp.Combatives-App-v1-0";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6528D8932B50528200B7BFFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Combatives App v1.0/Preview Content\"";
+				DEVELOPMENT_TEAM = G27W3B33FR;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Huber-Bleakney-CombativesApp.Combatives-App-v1-0";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6528D8952B50528200B7BFFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G27W3B33FR;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Huber-Bleakney-CombativesApp.Combatives-App-v1-0Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Combatives App v1.0.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Combatives App v1.0";
+			};
+			name = Debug;
+		};
+		6528D8962B50528200B7BFFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G27W3B33FR;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Huber-Bleakney-CombativesApp.Combatives-App-v1-0Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Combatives App v1.0.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Combatives App v1.0";
+			};
+			name = Release;
+		};
+		6528D8982B50528200B7BFFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G27W3B33FR;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Huber-Bleakney-CombativesApp.Combatives-App-v1-0UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Combatives App v1.0";
+			};
+			name = Debug;
+		};
+		6528D8992B50528200B7BFFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G27W3B33FR;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Huber-Bleakney-CombativesApp.Combatives-App-v1-0UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Combatives App v1.0";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6528D8682B50527F00B7BFFA /* Build configuration list for PBXProject "Combatives App v1.0" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6528D88F2B50528200B7BFFA /* Debug */,
+				6528D8902B50528200B7BFFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6528D8912B50528200B7BFFA /* Build configuration list for PBXNativeTarget "Combatives App v1.0" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6528D8922B50528200B7BFFA /* Debug */,
+				6528D8932B50528200B7BFFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6528D8942B50528200B7BFFA /* Build configuration list for PBXNativeTarget "Combatives App v1.0Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6528D8952B50528200B7BFFA /* Debug */,
+				6528D8962B50528200B7BFFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6528D8972B50528200B7BFFA /* Build configuration list for PBXNativeTarget "Combatives App v1.0UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6528D8982B50528200B7BFFA /* Debug */,
+				6528D8992B50528200B7BFFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6528D8652B50527F00B7BFFA /* Project object */;
+}
