@@ -5,7 +5,6 @@
 //  Created by Ethan Bleakney on 1/11/24.
 // Joined by James Huber 1/11/24
 //
-// New Comment Test
 
 import SwiftUI
 
