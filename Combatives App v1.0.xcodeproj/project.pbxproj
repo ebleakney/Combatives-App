@@ -21,6 +21,7 @@
 		6528D8A82B506A4D00B7BFFA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6528D8A72B506A4D00B7BFFA /* FirebaseAuth */; };
 		6528D8AA2B506A4D00B7BFFA /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 6528D8A92B506A4D00B7BFFA /* FirebaseAuthCombine-Community */; };
 		654352862B598E2E0095F276 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 654352852B598E2E0095F276 /* GoogleService-Info.plist */; };
+		654352892B5990250095F276 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654352882B5990250095F276 /* AuthenticationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		6528D88B2B50528200B7BFFA /* Combatives_App_v1_0UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combatives_App_v1_0UITests.swift; sourceTree = "<group>"; };
 		6528D88D2B50528200B7BFFA /* Combatives_App_v1_0UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combatives_App_v1_0UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		654352852B598E2E0095F276 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		654352882B5990250095F276 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				6528D8702B50527F00B7BFFA /* Combatives_App_v1_0App.swift */,
 				654352852B598E2E0095F276 /* GoogleService-Info.plist */,
 				6528D8722B50527F00B7BFFA /* ContentView.swift */,
+				654352872B598FB20095F276 /* Authentication */,
 				6528D8742B50528200B7BFFA /* Assets.xcassets */,
 				6528D8762B50528200B7BFFA /* Preview Content */,
 			);
@@ -140,6 +143,14 @@
 				6528D88D2B50528200B7BFFA /* Combatives_App_v1_0UITestsLaunchTests.swift */,
 			);
 			path = "Combatives App v1.0UITests";
+			sourceTree = "<group>";
+		};
+		654352872B598FB20095F276 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				654352882B5990250095F276 /* AuthenticationView.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +297,7 @@
 			files = (
 				6528D8732B50527F00B7BFFA /* ContentView.swift in Sources */,
 				6528D8712B50527F00B7BFFA /* Combatives_App_v1_0App.swift in Sources */,
+				654352892B5990250095F276 /* AuthenticationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
