@@ -9,10 +9,30 @@ import SwiftUI
 
 struct InitLogin: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            
+            NavigationLink {
+                Text("Hello")
+            } label: {
+                Text("Sign In")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(height: 55)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .cornerRadius(10.0)
+            }
+            Spacer()
+        }
+        .padding()
+        .navigationTitle("Sign In")
     }
 }
 
-#Preview {
-    InitLogin()
+struct InitLogin_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationStack {
+            InitLogin()
+        }
+    }
 }
