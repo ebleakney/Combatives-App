@@ -39,135 +39,141 @@ struct GradeSheetView: View {
     }
     
     var body: some View {
-        VStack {
+        ZStack {   // rounded rectangle border
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(Color.black, lineWidth: 1)
+                .background(RoundedRectangle(cornerRadius: 8).foregroundColor(.white))
+            
             VStack {
-                HStack {
-                    Text("Name:")
-                        .font(.headline)
-                        .padding(.bottom, 2)
-                        .underline()
+                VStack {
+                    HStack {
+                        Text("Name:")
+                            .font(.headline)
+                            .padding(.bottom, 2)
+                            .underline()
+                        
+                        TextField("Enter Student's Name", text: $studentName)
+                            .padding()
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .autocapitalization(.words)
+                    }
+                    .padding()
                     
-                    TextField("Enter Student's Name", text: $studentName)
-                        .padding()
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .autocapitalization(.words)
-                }
-                .padding()
-                
-                HStack {
-                    Text("Weight:")
-                        .font(.headline)
-                        .padding(.bottom, 2)
-                        .underline()
-                    
-                    TextField("Enter Student's Weight", text: $studentWeight)
-                        .padding()
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .autocapitalization(.none)
-                        .keyboardType(.numberPad) // Set keyboard type to number pad
-                        .onReceive(Just(studentWeight)) { newValue in
-                            let filtered = newValue.filter { "0123456789".contains($0) }
-                            if filtered != newValue {
-                                self.studentWeight = filtered
+                    HStack {
+                        Text("Weight:")
+                            .font(.headline)
+                            .padding(.bottom, 2)
+                            .underline()
+                        
+                        TextField("Enter Student's Weight", text: $studentWeight)
+                            .padding()
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .autocapitalization(.none)
+                            .keyboardType(.numberPad) // Set keyboard type to number pad
+                            .onReceive(Just(studentWeight)) { newValue in
+                                let filtered = newValue.filter { "0123456789".contains($0) }
+                                if filtered != newValue {
+                                    self.studentWeight = filtered
+                                }
                             }
+                        
+                        Picker(selection: $selectedGender, label: Text("Gender")) {
+                            Text("Male").tag(0)
+                            Text("Female").tag(1)
                         }
-                    
-                    Picker(selection: $selectedGender, label: Text("Gender")) {
-                        Text("Male").tag(0)
-                        Text("Female").tag(1)
+                        .pickerStyle(SegmentedPickerStyle())
+                        .padding(.leading, 8)
                     }
-                    .pickerStyle(SegmentedPickerStyle())
-                    .padding(.leading, 8)
-                }
-                .padding()
-                
-                HStack {
-                    Text("Notes:")
+                    .padding()
+                    
+                    HStack {
+                        Text("Notes:")
+                            .font(.headline)
+                            .padding(.bottom, 2)
+                            .underline()
+                        
+                        TextField("Optional", text: $optionalNotes)
+                            .padding()
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .autocapitalization(.words)
+                    }
+                    .padding()
+                    
+                    Text("Subjective Points:")
                         .font(.headline)
                         .padding(.bottom, 2)
                         .underline()
                     
-                    TextField("Optional", text: $optionalNotes)
-                        .padding()
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .autocapitalization(.words)
-                }
-                .padding()
-                
-                Text("Subjective Points:")
-                    .font(.headline)
-                    .padding(.bottom, 2)
-                    .underline()
-                
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text("Discipline:")
-                            .font(.headline)
-                            .padding(.trailing, 8)
-                        Slider(value: $disciplineSliderValue, in: -10...10, step: 1)
-                        Text("\(Int(disciplineSliderValue))")
-                    }
-                    Text("(-10 to 10 Points)")
-                        .padding(.trailing)
-                }
-                .padding()
-                
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text("Stamina:")
-                            .font(.headline)
-                            .padding(.trailing, 8)
-                        Slider(value: $staminaSliderValue, in: -10...10, step: 1)
-                        Text("\(Int(staminaSliderValue))")
-                    }
-                    Text("(-10 to 10 Points)")
-                        .padding(.trailing)
-                }
-                .padding()
-                
-                HStack {
                     VStack(alignment: .leading) {
-                        Text("Live Grappling:")
-                            .font(.headline)
-                            .padding(.bottom, 2)
-                            .underline()
-                        Text("(Max 80 Points)")
+                        HStack {
+                            Text("Discipline:")
+                                .font(.headline)
+                                .padding(.trailing, 8)
+                            Slider(value: $disciplineSliderValue, in: -10...10, step: 1)
+                            Text("\(Int(disciplineSliderValue))")
+                        }
+                        Text("(-10 to 10 Points)")
                             .padding(.trailing)
-                        Text("Total Points:")
-                            .font(.headline)
-                            .padding(.bottom, 2)
-                            .underline()
-                        Text("Letter Grade:")
-                            .font(.headline)
-                            .padding(.top)
-                            .underline()
                     }
+                    .padding()
                     
-                    Spacer() // Add Spacer to push the next view to the right
                     VStack(alignment: .leading) {
-                        Text("\(liveGrapplingPoints)")
-                            .font(.headline)
-                            .padding(.bottom, 2)
-                            .foregroundColor(.blue)
-                        Text("")
+                        HStack {
+                            Text("Stamina:")
+                                .font(.headline)
+                                .padding(.trailing, 8)
+                            Slider(value: $staminaSliderValue, in: -10...10, step: 1)
+                            Text("\(Int(staminaSliderValue))")
+                        }
+                        Text("(-10 to 10 Points)")
                             .padding(.trailing)
-                        Text("")
-                            .padding(.trailing)
-                        Text("\(liveTotalPoints)")
-                            .font(.headline)
-                            .padding(.bottom, 2)
-                            .foregroundColor(.blue)
-                        Text("")
-                            .padding(.trailing)
-                        Text("")
-                            .padding(.trailing)
-                        Text("\(letterGrade)")
-                            .font(.headline)
-                            .padding(.bottom, 2)
-                            .foregroundColor(.green)
                     }
+                    .padding()
+                    
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("Live Grappling:")
+                                .font(.headline)
+                                .padding(.bottom, 2)
+                                .underline()
+                            Text("(Max 80 Points)")
+                                .padding(.trailing)
+                            Text("Total Points:")
+                                .font(.headline)
+                                .padding(.bottom, 2)
+                                .underline()
+                            Text("Letter Grade:")
+                                .font(.headline)
+                                .padding(.top)
+                                .underline()
+                        }
+                        
+                        Spacer() // Add Spacer to push the next view to the right
+                        VStack(alignment: .leading) {
+                            Text("\(liveGrapplingPoints)")
+                                .font(.headline)
+                                .padding(.bottom, 2)
+                                .foregroundColor(.blue)
+                            Text("")
+                                .padding(.trailing)
+                            Text("")
+                                .padding(.trailing)
+                            Text("\(liveTotalPoints)")
+                                .font(.headline)
+                                .padding(.bottom, 2)
+                                .foregroundColor(.blue)
+                            Text("")
+                                .padding(.trailing)
+                            Text("")
+                                .padding(.trailing)
+                            Text("\(letterGrade)")
+                                .font(.headline)
+                                .padding(.bottom, 2)
+                                .foregroundColor(.green)
+                        }
+                    }
+                    .padding()
                 }
-                .padding()
             }
         }
     }

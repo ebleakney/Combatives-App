@@ -3,58 +3,84 @@ import SwiftUI
 struct FourColumnView: View {
     var body: some View {
         HStack {
+            // Blue Dominant Text Box
+            VStack {
+                Text("Blue Dominant")
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(8)
+                    .rotationEffect(.degrees(-90))
+            }
+            .font(.headline)
+            .foregroundColor(.white)
+            .padding()
+            .background(Color.blue)
+            .cornerRadius(8)
+
             // First Column
             VStack(alignment: .leading) {
-                Text("Column 1 Header")
+                Text("Closed Guard (CG) (DP)")
                     .font(.headline)
                     .padding(.bottom, 8)
-
-                Text("Column 1, Row 1")
-                Text("Column 1, Row 2")
-                Text("Column 1, Row 3")
+                
+                Text("Guard Passed")
+                Text("Recovered CG, bottom 1/2, swept into silver's CG, or neutral")
+                Text("Maintained")
+                Text("Swept to top 1/2 guard")
+                Text("Swept to top dominant")
+                Text("RNC or Guillotine")
             }
             .padding()
-            .overlay(Rectangle().frame(height: 1).padding(.top, 8), alignment: .bottom)
+            .background(Color.gray.opacity(0.2))
+            .cornerRadius(8)
 
             // Second Column
             VStack(alignment: .leading) {
-                Text("Column 2 Header")
+                Text("Side Mt (DP)")
                     .font(.headline)
                     .padding(.bottom, 8)
 
-                Text("Column 2, Row 1")
-                Text("Column 2, Row 2")
-                Text("Column 2, Row 3")
+                ForEach(0..<5) { row in
+                    Text("Column 2, Row \(row + 1)")
+                }
             }
             .padding()
-            .overlay(Rectangle().frame(height: 1).padding(.top, 8), alignment: .bottom)
+            .background(Color.gray.opacity(0.2))
+            .cornerRadius(8)
 
             // Third Column
             VStack(alignment: .leading) {
-                Text("Column 3 Header")
+                Text("Front Mt (DP)")
                     .font(.headline)
                     .padding(.bottom, 8)
 
-                Text("Column 3, Row 1")
-                Text("Column 3, Row 2")
-                Text("Column 3, Row 3")
+                ForEach(0..<5) { row in
+                    Text("Column 3, Row \(row + 1)")
+                }
             }
             .padding()
-            .overlay(Rectangle().frame(height: 1).padding(.top, 8), alignment: .bottom)
+            .background(Color.gray.opacity(0.2))
+            .cornerRadius(8)
 
             // Fourth Column
             VStack(alignment: .leading) {
-                Text("Column 4 Header")
+                Text("Rear Mt (DP)")
                     .font(.headline)
                     .padding(.bottom, 8)
 
-                Text("Column 4, Row 1")
-                Text("Column 4, Row 2")
-                Text("Column 4, Row 3")
+                ForEach(0..<5) { row in
+                    Text("Column 4, Row \(row + 1)")
+                }
             }
             .padding()
-            .overlay(Rectangle().frame(height: 1).padding(.top, 8), alignment: .bottom)
+            .background(Color.gray.opacity(0.2))
+            .cornerRadius(8)
         }
+        .background(Color.white)
+        .padding()
+        .cornerRadius(8)
+        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.black, lineWidth: 1))
     }
 }
 
