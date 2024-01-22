@@ -133,19 +133,6 @@ struct GradeSheetView: View {
                             .underline()
                         Text("(Max 80 Points)")
                             .padding(.trailing)
-                    }
-                    
-                    Spacer() // Add Spacer to push the next view to the right
-                    
-                    Text("\(liveGrapplingPoints)")
-                        .font(.headline)
-                        .padding(.trailing)
-                        .foregroundColor(.blue)
-                }
-                .padding()
-                
-                HStack {
-                    VStack(alignment: .leading) {
                         Text("Total Points:")
                             .font(.headline)
                             .padding(.bottom, 2)
@@ -156,20 +143,31 @@ struct GradeSheetView: View {
                             .underline()
                     }
                     
-                    Spacer()
+                    Spacer() // Add Spacer to push the next view to the right
                     VStack(alignment: .leading) {
+                        Text("\(liveGrapplingPoints)")
+                            .font(.headline)
+                            .padding(.bottom, 2)
+                            .foregroundColor(.blue)
+                        Text("")
+                            .padding(.trailing)
+                        Text("")
+                            .padding(.trailing)
                         Text("\(liveTotalPoints)")
                             .font(.headline)
                             .padding(.bottom, 2)
                             .foregroundColor(.blue)
-                        
-                        
+                        Text("")
+                            .padding(.trailing)
+                        Text("")
+                            .padding(.trailing)
                         Text("\(letterGrade)")
                             .font(.headline)
-                            .padding(.trailing, 2)
+                            .padding(.bottom, 2)
                             .foregroundColor(.green)
                     }
                 }
+                .padding()
             }
         }
     }
