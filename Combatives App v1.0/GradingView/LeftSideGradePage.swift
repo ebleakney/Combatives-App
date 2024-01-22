@@ -173,7 +173,7 @@ struct GradeSheetView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ReContentView_Previews: PreviewProvider {
     static var previews: some View {
         GradeSheetView(liveGrapplingPoints: .constant(0), liveTotalPoints: .constant(0))
     }
