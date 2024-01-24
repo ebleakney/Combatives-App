@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct InitLogin: View {
+    
+    @Binding var showSignInView: Bool
+    
     var body: some View {
         VStack {
             
             NavigationLink {
-                SignInWithEmailView()
+                SignInWithEmailView(showSignInView: $showSignInView)
             } label: {
                 Text("Sign In")
                     .font(.headline)
@@ -21,7 +24,19 @@ struct InitLogin: View {
                     .frame(maxWidth: .infinity)
                     .background(Color.blue)
                     .cornerRadius(10.0)
+            } 
+            NavigationLink {
+                SignInWithEmailView(showSignInView: $showSignInView)
+            } label: {
+                Text("Sign Up")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(height: 55)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .cornerRadius(10.0)
             }
+
             Spacer()
         }
         .padding()
@@ -32,7 +47,7 @@ struct InitLogin: View {
 struct InitLogin_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            InitLogin()
+            InitLogin(showSignInView: .constant(false))
         }
     }
 }

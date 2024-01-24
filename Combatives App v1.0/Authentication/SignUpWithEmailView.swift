@@ -1,19 +1,20 @@
 //
-//  SignInWithEmailView.swift
+//  SignUpWithEmailView.swift
 //  Combatives App v1.0
 //
-//  Created by Ethan Bleakney on 1/18/24.
+//  Created by Ethan Bleakney on 1/24/24.
 //
 
 import SwiftUI
 
+
 @MainActor
-final class SignInWithEmailViewModel: ObservableObject {
+final class SignUpWithEmailViewModel: ObservableObject {
     
     @Published var email = ""
     @Published var password = ""
     
-    func signIn() async throws {
+    func signUp() async throws {
         guard !email.isEmpty, !password.isEmpty else {
             //NEED TO DO VALIDATION HERE, SO MAKE SURE EMAIL AND PASSWORD ARE VALID, COULD MAKE PASSWORD REQUIRE CHARS, LENGTH, ETC.
             print("No email or password found.")
@@ -21,13 +22,13 @@ final class SignInWithEmailViewModel: ObservableObject {
             return
         }
         
-        try await AuthenticationManager.shared.signInUser(email: email, password: password)
+        try await AuthenticationManager.shared.createUser(email: email, password: password)
     }
 }
 
-struct SignInWithEmailView: View {
+struct SignUpWithEmailView: View {
     
-    @StateObject private var viewModel = SignInWithEmailViewModel()
+    @StateObject private var viewModel = SignUpWithEmailViewModel()
     @Binding var showSignInView: Bool
     
     var body: some View {
@@ -45,26 +46,14 @@ struct SignInWithEmailView: View {
             Button {
                 Task {
                     do {
-                        try await viewModel.signIn()
+                        try await viewModel.signUp()
                         showSignInView = false
+                        return
                     } catch {
                         //put actual error on view here
                         print(error)
                     }
                 }
-            } label: {
-                Text("Sign In")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .frame(height: 55)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .cornerRadius(10.0)
-            }
-            
-            // SIGN UP BUTTON:
-            NavigationLink {
-                SignUpWithEmailView(showSignInView: .constant(false))
             } label: {
                 Text("Sign Up")
                     .font(.headline)
@@ -74,19 +63,18 @@ struct SignInWithEmailView: View {
                     .background(Color.blue)
                     .cornerRadius(10.0)
             }
-            
         }
         Spacer()
         .padding()
-        .navigationTitle("Sign In With Email")
+        .navigationTitle("Sign Up With Email")
     }
 }
 
 
-struct SignInWithEmail_Previews: PreviewProvider {
+struct SignUpWithEmail_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SignInWithEmailView(showSignInView: .constant(false))
+            SignUpWithEmailView(showSignInView: .constant(false))
         }
     }
 }
