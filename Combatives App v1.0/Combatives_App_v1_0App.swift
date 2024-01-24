@@ -16,7 +16,9 @@ struct Combatives_App_v1_0App: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                InitLogin()
+            }
         }
     }
 }
