@@ -12,7 +12,7 @@ struct InitLogin: View {
         VStack {
             
             NavigationLink {
-                Text("Hello")
+                SignInWithEmailView()
             } label: {
                 Text("Sign In")
                     .font(.headline)
