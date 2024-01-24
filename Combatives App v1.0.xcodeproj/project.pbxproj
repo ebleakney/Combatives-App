@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F7CC1972B59940800A9E3ED /* LeftSideGradePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7CC1962B59940800A9E3ED /* LeftSideGradePage.swift */; };
-		3F7CC1992B5ED1F500A9E3ED /* RightSideGradePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7CC1982B5ED1F500A9E3ED /* RightSideGradePage.swift */; };
+		3F7CC1972B59940800A9E3ED /* BlueGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7CC1962B59940800A9E3ED /* BlueGrade.swift */; };
+		3F7CC1992B5ED1F500A9E3ED /* BlueDominant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7CC1982B5ED1F500A9E3ED /* BlueDominant.swift */; };
 		6528D8712B50527F00B7BFFA /* Combatives_App_v1_0App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6528D8702B50527F00B7BFFA /* Combatives_App_v1_0App.swift */; };
 		6528D8732B50527F00B7BFFA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6528D8722B50527F00B7BFFA /* ContentView.swift */; };
 		6528D8752B50528200B7BFFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6528D8742B50528200B7BFFA /* Assets.xcassets */; };
@@ -49,8 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3F7CC1962B59940800A9E3ED /* LeftSideGradePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideGradePage.swift; sourceTree = "<group>"; };
-		3F7CC1982B5ED1F500A9E3ED /* RightSideGradePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightSideGradePage.swift; sourceTree = "<group>"; };
+		3F7CC1962B59940800A9E3ED /* BlueGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueGrade.swift; sourceTree = "<group>"; };
+		3F7CC1982B5ED1F500A9E3ED /* BlueDominant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueDominant.swift; sourceTree = "<group>"; };
 		6528D86D2B50527F00B7BFFA /* Combatives App v1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Combatives App v1.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6528D8702B50527F00B7BFFA /* Combatives_App_v1_0App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combatives_App_v1_0App.swift; sourceTree = "<group>"; };
 		6528D8722B50527F00B7BFFA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -104,8 +104,8 @@
 		3F7CC1952B5993E300A9E3ED /* GradingView */ = {
 			isa = PBXGroup;
 			children = (
-				3F7CC1962B59940800A9E3ED /* LeftSideGradePage.swift */,
-				3F7CC1982B5ED1F500A9E3ED /* RightSideGradePage.swift */,
+				3F7CC1962B59940800A9E3ED /* BlueGrade.swift */,
+				3F7CC1982B5ED1F500A9E3ED /* BlueDominant.swift */,
 			);
 			path = GradingView;
 			sourceTree = "<group>";
@@ -324,11 +324,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< Updated upstream
 				654352DB2B6179EC0095F276 /* RootView.swift in Sources */,
 				3F7CC1992B5ED1F500A9E3ED /* RightSideGradePage.swift in Sources */,
 				6543528B2B59924B0095F276 /* InitLogin.swift in Sources */,
 				654352DD2B617CF40095F276 /* SettingsView.swift in Sources */,
 				3F7CC1972B59940800A9E3ED /* LeftSideGradePage.swift in Sources */,
+=======
+				3F7CC1992B5ED1F500A9E3ED /* BlueDominant.swift in Sources */,
+				6543528B2B59924B0095F276 /* InitLogin.swift in Sources */,
+				3F7CC1972B59940800A9E3ED /* BlueGrade.swift in Sources */,
+>>>>>>> Stashed changes
 				6528D8732B50527F00B7BFFA /* ContentView.swift in Sources */,
 				6528D8712B50527F00B7BFFA /* Combatives_App_v1_0App.swift in Sources */,
 				654352DF2B6188A50095F276 /* SignUpWithEmailView.swift in Sources */,
