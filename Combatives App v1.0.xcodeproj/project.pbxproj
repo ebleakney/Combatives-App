@@ -175,9 +175,9 @@
 				6543528A2B59924B0095F276 /* InitLogin.swift */,
 				6543528C2B5997AB0095F276 /* SignInWithEmailView.swift */,
 				654352DE2B6188A50095F276 /* SignUpWithEmailView.swift */,
-				6543528E2B599C880095F276 /* AuthenticationManager.swift */,
 				654352DA2B6179EC0095F276 /* RootView.swift */,
 				654352DC2B617CF40095F276 /* SettingsView.swift */,
+				6543528E2B599C880095F276 /* AuthenticationManager.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
