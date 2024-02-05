@@ -18,6 +18,9 @@ final class SignInWithEmailViewModel: ObservableObject {
             //NEED TO DO VALIDATION HERE, SO MAKE SURE EMAIL AND PASSWORD ARE VALID, COULD MAKE PASSWORD REQUIRE CHARS, LENGTH, ETC.
             print("No email or password found.")
             print("Please enter a valid ....")
+            
+            //ADD GUARD FOR BAD LENGTH PASSWORD OR INSUFFICIENT CHARS (PASSWORD REQS)
+            // ADD GUARD FOR USERNAME
             return
         }
         
@@ -29,6 +32,8 @@ struct SignInWithEmailView: View {
     
     @StateObject private var viewModel = SignInWithEmailViewModel()
     @Binding var showSignInView: Bool
+    
+    @State private var errorMessage = ""
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -42,14 +47,24 @@ struct SignInWithEmailView: View {
                 .background(Color.gray.opacity(0.4))
                 .cornerRadius(10.0)
             
+            //Check if error message is empty. If not, display error
+            if !errorMessage.isEmpty {
+                Text(errorMessage)
+                    .foregroundColor(.red) // Makes the error message text red
+            }
+            
+            //SIGN IN BUTTON
             Button {
                 Task {
                     do {
                         try await viewModel.signIn()
                         showSignInView = false
+                        // revert error message to nothing if the sign in works
+                        errorMessage = ""
                     } catch {
                         //put actual error on view here
-                        print(error)
+                        print("Incorrect email or password --", error)
+                        errorMessage = "Unrecognized email or password"
                     }
                 }
             } label: {
