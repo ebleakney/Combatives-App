@@ -59,6 +59,20 @@ final class AuthenticationManager {
         try await currentUser.updatePassword(to: password)
     }
     
+    func verifyOldPassword(email: String, oldPassword: String) async -> Bool {
+        let auth = Auth.auth()
+        guard let user = auth.currentUser else { return false }
+        
+        let credential = EmailAuthProvider.credential(withEmail: email, password: oldPassword)
+        do {
+            try await user.reauthenticate(with: credential)
+            return true
+        } catch {
+            print("Re-authentication failed: \(error.localizedDescription)")
+            return false
+        }
+    }
+    
     func updateEmail(email: String) async throws{
         guard let currentUser = Auth.auth().currentUser else {
             throw URLError(.badServerResponse)

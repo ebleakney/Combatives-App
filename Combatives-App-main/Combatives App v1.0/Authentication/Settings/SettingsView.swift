@@ -53,8 +53,16 @@ struct SettingsView: View {
                 }
             }
             
-            Button("Reset password") {
-                
+            NavigationLink(destination: ResetPasswordView()) {
+                Text("Reset Password")
+            }
+            
+            NavigationLink(destination: UpdatePasswordView()) {
+                Text("Update Password")
+            }
+            
+            NavigationLink(destination: UpdateEmailView()) {
+                Text("Update Email")
             }
         }
         .navigationBarTitle("Settings")

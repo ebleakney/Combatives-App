@@ -31,7 +31,7 @@
 		654352DF2B6188A50095F276 /* SignUpWithEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654352DE2B6188A50095F276 /* SignUpWithEmailView.swift */; };
 		654352FF2B644BFB0095F276 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654352FE2B644BFB0095F276 /* ResetPasswordView.swift */; };
 		654353012B644E2B0095F276 /* UpdatePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654353002B644E2B0095F276 /* UpdatePasswordView.swift */; };
-		654353032B644E3D0095F276 /* UpdateEmailview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654353022B644E3D0095F276 /* UpdateEmailview.swift */; };
+		65A16FD22B7A7457003A0AF9 /* UpdateEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A16FD12B7A7457003A0AF9 /* UpdateEmailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +73,7 @@
 		654352DE2B6188A50095F276 /* SignUpWithEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithEmailView.swift; sourceTree = "<group>"; };
 		654352FE2B644BFB0095F276 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		654353002B644E2B0095F276 /* UpdatePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordView.swift; sourceTree = "<group>"; };
-		654353022B644E3D0095F276 /* UpdateEmailview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEmailview.swift; sourceTree = "<group>"; };
+		65A16FD12B7A7457003A0AF9 /* UpdateEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEmailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,13 +182,21 @@
 				6543528C2B5997AB0095F276 /* SignInWithEmailView.swift */,
 				654352DE2B6188A50095F276 /* SignUpWithEmailView.swift */,
 				654352DA2B6179EC0095F276 /* RootView.swift */,
-				654352DC2B617CF40095F276 /* SettingsView.swift */,
+				65A16FB02B715B35003A0AF9 /* Settings */,
 				6543528E2B599C880095F276 /* AuthenticationManager.swift */,
-				654352FE2B644BFB0095F276 /* ResetPasswordView.swift */,
-				654353002B644E2B0095F276 /* UpdatePasswordView.swift */,
-				654353022B644E3D0095F276 /* UpdateEmailview.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		65A16FB02B715B35003A0AF9 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				654352DC2B617CF40095F276 /* SettingsView.swift */,
+				654352FE2B644BFB0095F276 /* ResetPasswordView.swift */,
+				654353002B644E2B0095F276 /* UpdatePasswordView.swift */,
+				65A16FD12B7A7457003A0AF9 /* UpdateEmailView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,7 +353,7 @@
 				6528D8712B50527F00B7BFFA /* Combatives_App_v1_0App.swift in Sources */,
 				654352DF2B6188A50095F276 /* SignUpWithEmailView.swift in Sources */,
 				6543528F2B599C880095F276 /* AuthenticationManager.swift in Sources */,
-				654353032B644E3D0095F276 /* UpdateEmailview.swift in Sources */,
+				65A16FD22B7A7457003A0AF9 /* UpdateEmailView.swift in Sources */,
 				6543528D2B5997AB0095F276 /* SignInWithEmailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

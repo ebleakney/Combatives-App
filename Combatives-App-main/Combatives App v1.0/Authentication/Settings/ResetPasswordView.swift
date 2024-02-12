@@ -1,5 +1,5 @@
 //
-//  ResetPasswordView.swift
+//  UpdateEmailView.swift
 //  Combatives App v1.0
 //
 //  Created by Ethan Bleakney on 1/26/24.
