@@ -13,11 +13,16 @@ struct HomeScreenView: View {
                 DetailView(selection: selection)
             } else {
                 VStack {
-                    UserProfileView()
                     GridView()
                 }
                 .padding(.top)
                 .padding(.trailing) // Add padding to shift UserProfileView to the right
+                .overlay(
+                    UserProfileView()
+                        .padding(.bottom)
+                        .padding(.trailing)
+                    , alignment: .topTrailing
+                )
             }
         }
         .frame(minWidth: 800, minHeight: 600)
@@ -63,19 +68,16 @@ struct DetailView: View {
 
 struct UserProfileView: View {
     var body: some View {
-        HStack {
-            Spacer()
-            Button(action: {
-                // Profile button action
-            }) {
-                HStack {
-                    Text("Jess Militar")
-                    Image(systemName: "person.crop.circle.fill")
-                }
-                .padding(.horizontal)
+        Button(action: {
+            // Profile button action
+        }) {
+            HStack {
+                Text("Jess Militar")
+                Image(systemName: "person.crop.circle.fill")
             }
-            .buttonStyle(PlainButtonStyle())
+            .padding(.horizontal)
         }
+        .buttonStyle(PlainButtonStyle())
     }
 }
 
