@@ -26,7 +26,7 @@ struct InitLogin: View {
                     .cornerRadius(10.0)
             } 
             NavigationLink {
-                SignInWithEmailView(showSignInView: $showSignInView)
+                SignUpWithEmailView(showSignInView: $showSignInView)
             } label: {
                 Text("Sign Up")
                     .font(.headline)

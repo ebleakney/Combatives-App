@@ -41,11 +41,13 @@ struct SignInWithEmailView: View {
                 .padding()
                 .background(Color.gray.opacity(0.4))
                 .cornerRadius(10.0)
+                .autocapitalization(.none)
             
             SecureField("Password...", text: $viewModel.password)
                 .padding()
                 .background(Color.gray.opacity(0.4))
                 .cornerRadius(10.0)
+                .autocapitalization(.none)
             
             //Check if error message is empty. If not, display error
             if !errorMessage.isEmpty {

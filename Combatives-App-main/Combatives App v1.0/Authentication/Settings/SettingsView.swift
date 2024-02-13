@@ -15,22 +15,6 @@ final class SettingsViewModel: ObservableObject {
        try AuthenticationManager.shared.signOut()
     }
     
-//    func resetPassword() async throws {
-//        try await AuthenticationManager.shared.resetPassword(email: <#T##String#>)
-//    }
-//    
-//    func updatePassword() async throws {
-//        try await AuthenticationManager.shared.updatePassword(password: <#T##String#>)
-//    }
-//    
-//    func updateEmail() async throws {
-//        let authUser = try AuthenticationManager.shared.getAuthenticatedUser()
-//        guard let email = authUser.email else {
-//            throw URLError(.badServerResponse)
-//        }
-//                
-//        try await AuthenticationManager.shared.updateEmail(email: email)
-//    }
 }
 
 
@@ -52,7 +36,7 @@ struct SettingsView: View {
                     }
                 }
             }
-            
+
             NavigationLink(destination: ResetPasswordView()) {
                 Text("Reset Password")
             }
@@ -64,8 +48,8 @@ struct SettingsView: View {
             NavigationLink(destination: UpdateEmailView()) {
                 Text("Update Email")
             }
+            .navigationBarTitle("Settings")
         }
-        .navigationBarTitle("Settings")
     }
 }
 

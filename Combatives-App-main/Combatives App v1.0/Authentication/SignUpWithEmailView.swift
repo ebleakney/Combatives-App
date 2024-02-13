@@ -30,6 +30,7 @@ struct SignUpWithEmailView: View {
     
     @StateObject private var viewModel = SignUpWithEmailViewModel()
     @Binding var showSignInView: Bool
+
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -37,11 +38,13 @@ struct SignUpWithEmailView: View {
                 .padding()
                 .background(Color.gray.opacity(0.4))
                 .cornerRadius(10.0)
+                .autocapitalization(.none)
             
             SecureField("Password...", text: $viewModel.password)
                 .padding()
                 .background(Color.gray.opacity(0.4))
                 .cornerRadius(10.0)
+                .autocapitalization(.none)
             
             Button {
                 Task {
@@ -63,6 +66,7 @@ struct SignUpWithEmailView: View {
                     .background(Color.blue)
                     .cornerRadius(10.0)
             }
+            
         }
         Spacer()
         .padding()
