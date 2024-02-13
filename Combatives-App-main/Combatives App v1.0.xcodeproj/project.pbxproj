@@ -107,6 +107,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F0E3F412B7BD24300BB765B /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MainPage;
+			sourceTree = "<group>";
+		};
 		3F7CC1952B5993E300A9E3ED /* GradingView */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +150,7 @@
 				654352852B598E2E0095F276 /* GoogleService-Info.plist */,
 				6528D8722B50527F00B7BFFA /* ContentView.swift */,
 				3F7CC1952B5993E300A9E3ED /* GradingView */,
+				3F0E3F412B7BD24300BB765B /* MainPage */,
 				654352872B598FB20095F276 /* Authentication */,
 				6528D8742B50528200B7BFFA /* Assets.xcassets */,
 				6528D8762B50528200B7BFFA /* Preview Content */,
