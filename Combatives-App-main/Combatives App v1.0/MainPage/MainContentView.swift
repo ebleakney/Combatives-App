@@ -5,4 +5,12 @@
 //  Created by James Huber on 2/15/24.
 //
 
-import Foundation
+import SwiftUI
+
+struct MainContentView: View {
+    @Binding var selection: Int?
+    var body: some View {
+        SidebarView(selection: $selection)
+            .navigationBarHidden(true)
+    }
+}

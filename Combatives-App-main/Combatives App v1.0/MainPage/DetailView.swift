@@ -5,4 +5,11 @@
 //  Created by James Huber on 2/15/24.
 //
 
-import Foundation
+import SwiftUI
+
+struct DetailView: View {
+    let selection: Int
+    var body: some View {
+        Text("Detail view for selection \(selection)")
+    }
+}
