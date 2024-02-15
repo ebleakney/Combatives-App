@@ -15,13 +15,15 @@ struct GridView: View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 20) {
                 ForEach(0..<9) { item in
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(Color(hue: Double(item) / 9.0, saturation: 0.3, brightness: 0.9))
-                            .cornerRadius(12)
-                        Text("Item \(item)")
+                    NavigationLink(destination: ClassDetailView(className: "Class \(item)")) {
+                        ZStack {
+                            Rectangle()
+                                .foregroundColor(Color(hue: Double(item) / 9.0, saturation: 0.3, brightness: 0.9))
+                                .cornerRadius(12)
+                            Text("Class \(item)")
+                        }
+                        .aspectRatio(1, contentMode: .fit)
                     }
-                    .aspectRatio(1, contentMode: .fit)
                 }
             }
             .padding(.horizontal)

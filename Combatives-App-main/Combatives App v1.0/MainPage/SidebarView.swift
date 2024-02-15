@@ -12,7 +12,7 @@ struct SidebarView: View {
     @Binding var selection: Int?
     var body: some View {
         List {
-            NavigationLink(destination: Text("Home Content")) {
+            NavigationLink(destination: HomeScreenView()) {
                 Label("Home", systemImage: "house")
             }
             NavigationLink(destination: Text("Actions Content")) {
