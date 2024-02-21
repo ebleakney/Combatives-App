@@ -29,7 +29,6 @@ final class SignUpWithEmailViewModel: ObservableObject {
 struct SignUpWithEmailView: View {
     
     @StateObject private var viewModel = SignUpWithEmailViewModel()
-    @Binding var showSignInView: Bool
 
     
     var body: some View {
@@ -50,7 +49,6 @@ struct SignUpWithEmailView: View {
                 Task {
                     do {
                         try await viewModel.signUp()
-                        showSignInView = false
                         return
                     } catch {
                         //put actual error on view here
@@ -78,7 +76,7 @@ struct SignUpWithEmailView: View {
 struct SignUpWithEmail_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SignUpWithEmailView(showSignInView: .constant(false))
+            SignUpWithEmailView()
         }
     }
 }

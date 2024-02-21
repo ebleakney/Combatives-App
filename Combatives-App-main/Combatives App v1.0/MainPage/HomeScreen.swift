@@ -29,6 +29,81 @@ struct HomeScreenView: View {
     }
 }
 
+<<<<<<< Updated upstream
+=======
+struct SidebarView: View {
+    @Binding var selection: Int?
+    var body: some View {
+        List {
+            NavigationLink(destination: Text("Home Content")) {
+                Label("Home", systemImage: "house")
+            }
+            NavigationLink(destination: Text("Actions Content")) {
+                Label("Actions", systemImage: "plus")
+            }
+            NavigationLink(destination: Text("Compose Content")) {
+                Label("Compose", systemImage: "square.and.pencil")
+            }
+            NavigationLink(destination: SettingsView(showSignInView: .constant(false))) {// the destination for this will eventually need to be settings view
+                Label("Settings", systemImage: "gear")
+            }
+        }
+        .listStyle(SidebarListStyle())
+        .navigationTitle("Menu")
+    }
+}
+
+struct MainContentView: View {
+    @Binding var selection: Int?
+    var body: some View {
+        SidebarView(selection: $selection)
+            .navigationBarHidden(true)
+    }
+}
+
+struct DetailView: View {
+    let selection: Int
+    var body: some View {
+        Text("Detail view for selection \(selection)")
+    }
+}
+
+struct UserProfileView: View {
+    var body: some View {
+        Button(action: {
+            // Profile button action
+        }) {
+            HStack {
+                Text("Jess Militar")
+                Image(systemName: "person.crop.circle.fill")
+            }
+            .padding(.horizontal)
+        }
+        .buttonStyle(PlainButtonStyle())
+    }
+}
+
+struct GridView: View {
+    let columns = [GridItem(.adaptive(minimum: 160), spacing: 20)]
+    var body: some View {
+        ScrollView {
+            LazyVGrid(columns: columns, spacing: 20) {
+                ForEach(0..<9) { item in
+                    ZStack {
+                        Rectangle()
+                            .foregroundColor(Color(hue: Double(item) / 9.0, saturation: 0.3, brightness: 0.9))
+                            .cornerRadius(12)
+                        Text("Item \(item)")
+                    }
+                    .aspectRatio(1, contentMode: .fit)
+                }
+            }
+            .padding(.horizontal)
+        }
+    }
+}
+
+>>>>>>> Stashed changes
 struct HomeScreenView_Previews: PreviewProvider {
     static var previews: some View {
         HomeScreenView()

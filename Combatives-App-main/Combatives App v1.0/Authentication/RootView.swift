@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RootView: View {
+/*struct RootView: View {
     
     @State private var showSignInView: Bool = false
     
@@ -19,12 +19,13 @@ struct RootView: View {
         }
         .onAppear {
             let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
+            // If user is not logged in show the sign in view
             self.showSignInView = authUser == nil ? true: false
         }
             
         .fullScreenCover(isPresented: $showSignInView) {
             NavigationStack {
-                InitLogin(showSignInView: $showSignInView)
+                InitLogin()//showSignInView: $showSignInView)
             }
         }
     }
@@ -35,3 +36,4 @@ struct RootView_Previews: PreviewProvider {
             RootView()
     }
 }
+*/

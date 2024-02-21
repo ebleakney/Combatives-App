@@ -9,36 +9,34 @@ import SwiftUI
 
 struct InitLogin: View {
     
-    @Binding var showSignInView: Bool
     
     var body: some View {
-        VStack {
-            
-            NavigationLink {
-                SignInWithEmailView(showSignInView: $showSignInView)
-            } label: {
-                Text("Sign In")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .frame(height: 55)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .cornerRadius(10.0)
-            } 
-            NavigationLink {
-                SignUpWithEmailView(showSignInView: $showSignInView)
-            } label: {
-                Text("Sign Up")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .frame(height: 55)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .cornerRadius(10.0)
+            NavigationStack {
+                NavigationLink {
+                    SignInWithEmailView()
+                } label: {
+                    Text("Sign In")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(height: 55)
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue)
+                        .cornerRadius(10.0)
+                }
+                NavigationLink {
+                    SignUpWithEmailView()
+                } label: {
+                    Text("Sign Up")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(height: 55)
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue)
+                        .cornerRadius(10.0)
+                }
+                
+                Spacer()
             }
-
-            Spacer()
-        }
         .padding()
         .navigationTitle("Sign In")
     }
@@ -47,7 +45,7 @@ struct InitLogin: View {
 struct InitLogin_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            InitLogin(showSignInView: .constant(false))
+            InitLogin()
         }
     }
 }

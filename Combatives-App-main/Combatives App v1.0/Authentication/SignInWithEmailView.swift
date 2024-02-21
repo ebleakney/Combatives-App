@@ -31,7 +31,6 @@ final class SignInWithEmailViewModel: ObservableObject {
 struct SignInWithEmailView: View {
     
     @StateObject private var viewModel = SignInWithEmailViewModel()
-    @Binding var showSignInView: Bool
     
     @State private var errorMessage = ""
     
@@ -60,7 +59,6 @@ struct SignInWithEmailView: View {
                 Task {
                     do {
                         try await viewModel.signIn()
-                        showSignInView = false
                         // revert error message to nothing if the sign in works
                         errorMessage = ""
                     } catch {
@@ -81,7 +79,7 @@ struct SignInWithEmailView: View {
             
             // SIGN UP BUTTON:
             NavigationLink {
-                SignUpWithEmailView(showSignInView: .constant(false))
+                SignUpWithEmailView()
             } label: {
                 Text("Sign Up")
                     .font(.headline)
@@ -103,7 +101,7 @@ struct SignInWithEmailView: View {
 struct SignInWithEmail_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SignInWithEmailView(showSignInView: .constant(false))
+            SignInWithEmailView()
         }
     }
 }
