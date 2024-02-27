@@ -18,10 +18,10 @@ struct SidebarView: View {
             NavigationLink(destination: Text("Actions Content")) {
                 Label("Actions", systemImage: "plus")
             }
-            NavigationLink(destination: Text("Compose Content")) {
+            /*NavigationLink(destination: Text("Compose Content")) {
                 Label("Compose", systemImage: "square.and.pencil")
-            }
-            NavigationLink(destination: Text("Settings Content")) {// the destination for this will eventually need to be settings view
+            }*/
+            NavigationLink(destination: SettingsView(showSignInView: .constant(false))) {// the destination for this will eventually need to be settings view
                 Label("Settings", systemImage: "gear")
             }
         }

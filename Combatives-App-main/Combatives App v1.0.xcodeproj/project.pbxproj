@@ -16,6 +16,7 @@
 		3F84420C2B7E7AAA00758C38 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F84420B2B7E7AAA00758C38 /* UserProfileView.swift */; };
 		3F84420E2B7E7AC700758C38 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F84420D2B7E7AC700758C38 /* GridView.swift */; };
 		3F8442112B7E7B7400758C38 /* ClassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8442102B7E7B7400758C38 /* ClassView.swift */; };
+		3F8442142B850E1800758C38 /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8442132B850E1800758C38 /* StudentView.swift */; };
 		6528D8712B50527F00B7BFFA /* Combatives_App_v1_0App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6528D8702B50527F00B7BFFA /* Combatives_App_v1_0App.swift */; };
 		6528D8732B50527F00B7BFFA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6528D8722B50527F00B7BFFA /* ContentView.swift */; };
 		6528D8752B50528200B7BFFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6528D8742B50528200B7BFFA /* Assets.xcassets */; };
@@ -68,6 +69,7 @@
 		3F84420B2B7E7AAA00758C38 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		3F84420D2B7E7AC700758C38 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		3F8442102B7E7B7400758C38 /* ClassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassView.swift; sourceTree = "<group>"; };
+		3F8442132B850E1800758C38 /* StudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
 		6528D86D2B50527F00B7BFFA /* Combatives App v1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Combatives App v1.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6528D8702B50527F00B7BFFA /* Combatives_App_v1_0App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combatives_App_v1_0App.swift; sourceTree = "<group>"; };
 		6528D8722B50527F00B7BFFA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,6 +153,14 @@
 			path = ClassView;
 			sourceTree = "<group>";
 		};
+		3F8442122B850DB000758C38 /* StudentListView */ = {
+			isa = PBXGroup;
+			children = (
+				3F8442132B850E1800758C38 /* StudentView.swift */,
+			);
+			path = StudentListView;
+			sourceTree = "<group>";
+		};
 		6528D8642B50527F00B7BFFA = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +189,7 @@
 				6528D8722B50527F00B7BFFA /* ContentView.swift */,
 				3F7CC1952B5993E300A9E3ED /* GradingView */,
 				3F84420F2B7E7B5B00758C38 /* ClassView */,
+				3F8442122B850DB000758C38 /* StudentListView */,
 				3F0E3F412B7BD24300BB765B /* MainPage */,
 				654352872B598FB20095F276 /* Authentication */,
 				6528D8742B50528200B7BFFA /* Assets.xcassets */,
@@ -390,6 +401,7 @@
 				6543528B2B59924B0095F276 /* InitLogin.swift in Sources */,
 				3F7CC1972B59940800A9E3ED /* BlueGrade.swift in Sources */,
 				6528D8732B50527F00B7BFFA /* ContentView.swift in Sources */,
+				3F8442142B850E1800758C38 /* StudentView.swift in Sources */,
 				6528D8712B50527F00B7BFFA /* Combatives_App_v1_0App.swift in Sources */,
 				654352DF2B6188A50095F276 /* SignUpWithEmailView.swift in Sources */,
 				3F8442082B7E7A6100758C38 /* MainContentView.swift in Sources */,
