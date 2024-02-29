@@ -29,8 +29,7 @@ struct HomeScreenView: View {
     }
 }
 
-<<<<<<< Updated upstream
-=======
+
 struct SidebarView: View {
     @Binding var selection: Int?
     var body: some View {
@@ -103,7 +102,6 @@ struct GridView: View {
     }
 }
 
->>>>>>> Stashed changes
 struct HomeScreenView_Previews: PreviewProvider {
     static var previews: some View {
         HomeScreenView()
