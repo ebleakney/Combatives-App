@@ -10,8 +10,8 @@ import SwiftUI
 struct InitLogin: View {
     
     @EnvironmentObject var appViewModel: AppViewModel
-    @State private var showSignInView = false
-    @State private var showSignUpView = false
+    @Binding var showSignInView: Bool
+    @Binding var showSignUpView: Bool
     
     var body: some View {
         VStack {
@@ -83,11 +83,11 @@ struct InitLogin: View {
     }
 }
 
-struct InitLogin_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            InitLogin()
-                .environmentObject(AppViewModel())
-        }
-    }
-}
+//struct InitLogin_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationStack {
+//            InitLogin()
+//                .environmentObject(AppViewModel())
+//        }
+//    }
+//}

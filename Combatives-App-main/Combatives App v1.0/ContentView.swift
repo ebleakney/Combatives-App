@@ -39,6 +39,8 @@ final class AppViewModel: ObservableObject {
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: AppViewModel
+    @State private var showSignInView = false
+    @State private var showSignUpView = false
     
     var body: some View {
         if viewModel.isAuthenticated {
@@ -47,7 +49,7 @@ struct ContentView: View {
                 .environmentObject(viewModel) // Pass viewModel to use for signOut etc.
         } else {
             // User is not authenticated, show sign in or sign up view
-            InitLogin()
+            InitLogin(showSignInView: $showSignInView, showSignUpView: $showSignUpView)
                 .environmentObject(viewModel)
         }
     }
