@@ -173,6 +173,8 @@ struct GradeSheetView: View {
                         }
                     }
                     .padding()
+                    
+                    // TODO : Add a submit button that saves the whole grade
                 }
             }
         }
