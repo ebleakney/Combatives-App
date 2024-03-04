@@ -5,21 +5,6 @@
 //  Created by Ethan Bleakney on 1/11/24.
 // Joined by James Huber 1/11/24
 //
-/*
-import SwiftUI
-
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
-}
-*/
 
 import SwiftUI
 import FirebaseAuth
@@ -27,10 +12,19 @@ import FirebaseAuth
 @MainActor
 final class AppViewModel: ObservableObject {
     @Published var isAuthenticated = false
-    
+
+    private var authStateDidChangeListenerHandle: AuthStateDidChangeListenerHandle?
+
     init() {
-        // Check authentication state when the app starts
-        isAuthenticated = Auth.auth().currentUser != nil
+        authStateDidChangeListenerHandle = Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
+            self?.isAuthenticated = user != nil
+        }
+    }
+
+    deinit {
+        if let handle = authStateDidChangeListenerHandle {
+            Auth.auth().removeStateDidChangeListener(handle)
+        }
     }
     
     func signOut() {
@@ -41,8 +35,10 @@ final class AppViewModel: ObservableObject {
     // Add signIn and signUp methods here if needed
 }
 
+
+
 struct ContentView: View {
-    @StateObject private var viewModel = AppViewModel()
+    @EnvironmentObject var viewModel: AppViewModel
     
     var body: some View {
         if viewModel.isAuthenticated {
@@ -56,6 +52,8 @@ struct ContentView: View {
         }
     }
 }
+
+
 
 struct MainAppView: View {
     @EnvironmentObject var viewModel: AppViewModel
@@ -71,8 +69,9 @@ struct MainAppView: View {
     }
 }
 
-// Update your InitLogin, SignInWithEmailView, and SignUpWithEmailView to use the AppViewModel for navigation and authentication state changes.
+
 
 #Preview {
     ContentView()
+        .environmentObject(AppViewModel())
 }

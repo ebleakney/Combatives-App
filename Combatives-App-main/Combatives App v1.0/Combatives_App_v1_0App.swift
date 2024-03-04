@@ -14,10 +14,15 @@ struct Combatives_App_v1_0App: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
+    // Create a single instance of AppViewModel to be used across the app
+    // Every other instance will be @EnvironmentObject
+    @StateObject var appViewModel = AppViewModel()
+    
     var body: some Scene {
         WindowGroup {
             NavigationStack {
                 ContentView()
+                    .environmentObject(appViewModel)
             }
         }
     }

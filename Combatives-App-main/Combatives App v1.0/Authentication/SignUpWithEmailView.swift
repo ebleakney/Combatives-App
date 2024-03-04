@@ -27,7 +27,8 @@ final class SignUpWithEmailViewModel: ObservableObject {
 }
 
 struct SignUpWithEmailView: View {
-    
+    //environment variable for appViewModel from ContentView
+    @EnvironmentObject var appViewModel: AppViewModel
     @StateObject private var viewModel = SignUpWithEmailViewModel()
 
     
@@ -49,6 +50,8 @@ struct SignUpWithEmailView: View {
                 Task {
                     do {
                         try await viewModel.signUp()
+                        // change appViewModel.isAuthenticated to true in order to navigate to HomeScreen
+                        appViewModel.isAuthenticated = true
                         return
                     } catch {
                         //put actual error on view here

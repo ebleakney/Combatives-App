@@ -30,6 +30,8 @@ final class SignInWithEmailViewModel: ObservableObject {
 
 struct SignInWithEmailView: View {
     
+    //environment var for appViewModel from ContentView
+    @EnvironmentObject var appViewModel: AppViewModel
     @StateObject private var viewModel = SignInWithEmailViewModel()
     
     @State private var errorMessage = ""
@@ -61,6 +63,9 @@ struct SignInWithEmailView: View {
                         try await viewModel.signIn()
                         // revert error message to nothing if the sign in works
                         errorMessage = ""
+                        // change appViewModel.isAuthenticated to true in order to navigate to HomeScreen
+                        appViewModel.isAuthenticated = true
+
                     } catch {
                         //put actual error on view here
                         print("Incorrect email or password --", error)
@@ -102,6 +107,7 @@ struct SignInWithEmail_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             SignInWithEmailView()
+                .environmentObject(AppViewModel())
         }
     }
 }
