@@ -9,20 +9,31 @@ import SwiftUI
 
 
 struct SidebarView: View {
-    @Binding var selection: Int?
+    @Binding var selection: SidebarSelection?
+    
     var body: some View {
         List {
-            NavigationLink(destination: HomeScreenView()) {
+            NavigationLink(value: SidebarSelection.home) {
                 Label("Home", systemImage: "house")
             }
-            NavigationLink(destination: Text("Actions Content")) {
+            NavigationLink(value: SidebarSelection.actions) {
                 Label("Actions", systemImage: "plus")
             }
-            /*NavigationLink(destination: Text("Compose Content")) {
-                Label("Compose", systemImage: "square.and.pencil")
-            }*/
-            NavigationLink(destination: SettingsView(showSignInView: .constant(false))) {// the destination for this will eventually need to be settings view
+            NavigationLink(value: SidebarSelection.settings) {
                 Label("Settings", systemImage: "gear")
+            }
+        }
+        .navigationDestination(for: SidebarSelection.self) { selection in
+            switch selection {
+            case .home:
+                // Return the home content view
+                Text("Home Content")
+            case .actions:
+                // Return the actions content view
+                Text("Actions Content")
+            case .settings:
+                // Return the settings view
+                SettingsView(showSignInView: .constant(false))
             }
         }
         .listStyle(SidebarListStyle())

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainContentView: View {
-    @Binding var selection: Int?
+    @Binding var selection: SidebarSelection?
     var body: some View {
         SidebarView(selection: $selection)
             .navigationBarHidden(true)

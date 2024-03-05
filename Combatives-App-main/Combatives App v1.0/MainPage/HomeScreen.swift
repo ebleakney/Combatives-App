@@ -1,7 +1,13 @@
 import SwiftUI
 
+enum SidebarSelection: Int, Hashable {
+    case home
+    case actions
+    case settings
+}
+
 struct HomeScreenView: View {
-    @State private var selection: Int? = nil
+    @State private var selection: SidebarSelection? = .home
 
     var body: some View {
         NavigationSplitView {
@@ -10,7 +16,7 @@ struct HomeScreenView: View {
             MainContentView(selection: $selection)
         } detail: {
             if let selection = selection {
-                DetailView(selection: selection)
+                DetailView(selection: selection.rawValue)
             } else {
                 VStack {
                     GridView()
