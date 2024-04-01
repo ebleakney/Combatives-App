@@ -1,5 +1,3 @@
-import SwiftUI
-
 struct ScoringRow: View {
     @Binding var item: ScoringItem // Use Binding to make item mutable
     
@@ -21,13 +19,31 @@ struct ScoringRow: View {
         .background(item.isSelected ? Color.blue : Color.clear)
         .cornerRadius(8)
         .onTapGesture {
-            if item.isExtraPoints && item.isSelected {
-                item.isSelected.toggle()
+            item.isSelected.toggle()
+            // Find the item with the highest points
+            let highestPointsItem = findHighestPointsItem()
+            // Deselect items with fewer points unless it's an extra points item
+            deselectItemsWithLessPoints(than: highestPointsItem)
+        }
+    }
+    
+    // Function to find the item with the highest points in the row
+    private func findHighestPointsItem() -> ScoringItem {
+        let items = [item] // Start with the current item
+        // If there's a tie, choose the first one
+        return items.max { $0.points == $1.points }!
+    }
+    
+    // Function to deselect items with fewer points unless it's an extra points item
+    private func deselectItemsWithLessPoints(than highestPointsItem: ScoringItem) {
+        // Check each item in the row
+        for currentItem in [item] {
+            // Skip the current item
+            if currentItem.id == highestPointsItem.id { continue }
+            // Deselect the item if it has fewer points and is not an extra points item
+            if currentItem.points < highestPointsItem.points && !currentItem.isExtraPoints {
+                currentItem.isSelected = false
             }
-            else if item.isSelected{
-                item.isSelected.toggle()
-            }
-            /// Make changes so there is 1 case to handle whenever an item is selcted. It will check to make sure it is the highest points if it is the highest points it willl stay selected. If an extra points option is selected
         }
     }
 }

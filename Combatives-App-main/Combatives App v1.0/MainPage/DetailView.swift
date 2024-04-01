@@ -11,5 +11,6 @@ struct DetailView: View {
     let selection: Int
     var body: some View {
         Text("Detail view for selection \(selection)")
+        RearMountView()
     }
 }
