@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+
+//DetailView is supposed to contain the details for a class when you select on it
+// this is redundant to ClassView so we should get rid of it in the future
+
 struct DetailView: View {
     let selection: Int
     var body: some View {

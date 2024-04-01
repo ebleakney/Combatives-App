@@ -45,12 +45,14 @@ struct ContentView: View {
     var body: some View {
         if viewModel.isAuthenticated {
             // User is authenticated, show the main app view
-            MainAppView()
+            MainAppView(showSignInView: $showSignInView)
                 .environmentObject(viewModel) // Pass viewModel to use for signOut etc.
         } else {
-            // User is not authenticated, show sign in or sign up view
-            InitLogin(showSignInView: $showSignInView, showSignUpView: $showSignUpView)
-                .environmentObject(viewModel)
+            NavigationStack {
+                // User is not authenticated, show sign in or sign up view
+                InitLogin(showSignInView: $showSignInView, showSignUpView: $showSignUpView)
+                    .environmentObject(viewModel)
+            }
         }
     }
 }
@@ -59,11 +61,12 @@ struct ContentView: View {
 
 struct MainAppView: View {
     @EnvironmentObject var viewModel: AppViewModel
+    @Binding var showSignInView: Bool
     
     var body: some View {
         NavigationStack {
             // Your main app content here, e.g., a sidebar, a home screen, etc.
-            HomeScreenView()
+            HomeScreenView(showSignInView: $showSignInView)
                 .navigationBarItems(trailing: Button("Sign Out") {
                     viewModel.signOut()
                 })

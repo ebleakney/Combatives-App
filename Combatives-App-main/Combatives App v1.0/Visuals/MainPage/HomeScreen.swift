@@ -1,13 +1,16 @@
 import SwiftUI
 
+// enables the sidebar selections in the Sidebar View
 enum SidebarSelection: Int, Hashable {
     case home
     case actions
     case settings
+    case profile
 }
 
 struct HomeScreenView: View {
     @State private var selection: SidebarSelection? = .home
+    @Binding var showSignInView: Bool
 
     var body: some View {
         NavigationSplitView {
@@ -24,7 +27,7 @@ struct HomeScreenView: View {
                 .padding(.top)
                 .padding(.trailing) // Add padding to shift UserProfileView to the right
                 .overlay(
-                    UserProfileView()
+                    ProfileView(showSignInView: $showSignInView)
                         .padding(.bottom)
                         .padding(.trailing)
                     , alignment: .topTrailing
@@ -38,6 +41,6 @@ struct HomeScreenView: View {
 
 struct HomeScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScreenView()
+        HomeScreenView(showSignInView: .constant(false))
     }
 }
