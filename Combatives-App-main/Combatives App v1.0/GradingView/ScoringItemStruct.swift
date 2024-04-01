@@ -5,4 +5,12 @@
 //  Created by James Huber on 4/1/24.
 //
 
-import Foundation
+import SwiftUI
+
+struct ScoringItem: Identifiable {
+    let id = UUID()
+    var description: String
+    var points: Int
+    var isExtraPoints: Bool
+    var isSelected: Bool = false
+}

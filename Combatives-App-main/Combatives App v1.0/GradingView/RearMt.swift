@@ -1,13 +1,5 @@
 import SwiftUI
 
-struct ScoringItem: Identifiable {
-    let id = UUID()
-    var description: String
-    var points: Int
-    var isExtraPoints: Bool
-    var isSelected: Bool = false
-}
-
 struct RearMountView: View {
     @State private var dpScoringItems: [ScoringItem] = [
         ScoringItem(description: "Lost position or established closed or 1/2 guard (top/bottom)", points: 0, isExtraPoints: false),
@@ -81,7 +73,20 @@ struct RearMountView: View {
                         .cornerRadius(8)
                 }
                 .padding(.horizontal)
+                
                 Spacer()
+                
+                Button(action: {
+                    // Placeholder action for the next button
+                    print("Next button tapped")
+                }) {
+                    Image(systemName: "arrow.right.circle.fill")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .foregroundColor(.blue)
+                }
+                .padding(.trailing, 20)
+                .padding(.bottom, 20)
             }
             .padding(.vertical)
         }

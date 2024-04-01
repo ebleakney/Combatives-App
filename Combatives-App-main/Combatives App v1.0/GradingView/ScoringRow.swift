@@ -21,9 +21,13 @@ struct ScoringRow: View {
         .background(item.isSelected ? Color.blue : Color.clear)
         .cornerRadius(8)
         .onTapGesture {
-            if item.isExtraPoints || item.isSelected {
+            if item.isExtraPoints && item.isSelected {
                 item.isSelected.toggle()
-            } /// Make changes so there is 1 case to handle whenever an item is selcted. It will check to make sure it is the highest points if it is the highest points it willl stay selected. If an extra points option is selected
+            }
+            else if item.isSelected{
+                item.isSelected.toggle()
+            }
+            /// Make changes so there is 1 case to handle whenever an item is selcted. It will check to make sure it is the highest points if it is the highest points it willl stay selected. If an extra points option is selected
         }
     }
 }
