@@ -1,3 +1,5 @@
+import SwiftUI
+
 struct ScoringRow: View {
     @Binding var item: ScoringItem // Use Binding to make item mutable
     
@@ -37,7 +39,7 @@ struct ScoringRow: View {
     // Function to deselect items with fewer points unless it's an extra points item
     private func deselectItemsWithLessPoints(than highestPointsItem: ScoringItem) {
         // Check each item in the row
-        for currentItem in [item] {
+        for var currentItem in [item] {
             // Skip the current item
             if currentItem.id == highestPointsItem.id { continue }
             // Deselect the item if it has fewer points and is not an extra points item
