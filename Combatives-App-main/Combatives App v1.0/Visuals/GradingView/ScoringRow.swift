@@ -28,10 +28,18 @@ struct ScoringRow: View {
         .background(item.isSelected ? Color.blue : Color.clear)
         .cornerRadius(8)
         .onTapGesture {
-            item.isSelected.toggle()
+            //item.isSelected.toggle()
             // Find the item with the highest points
             let highestPointsItem = findHighestPointsItem()
             // Deselect items with fewer points unless it's an extra points item
+            if highestPointsItem.id == item.id && !item.isSelected {
+                item.isSelected.toggle()
+                }
+            else {
+                //Deselect the item
+                item.isSelected.toggle()
+            }
+            
             deselectItemsWithLessPoints(than: highestPointsItem)
         }
     }
@@ -51,7 +59,7 @@ struct ScoringRow: View {
             if currentItem.id == highestPointsItem.id { continue }
             // Deselect the item if it has fewer points and is not an extra points item
             if currentItem.points < highestPointsItem.points && !currentItem.isExtraPoints {
-                currentItem.isSelected = false
+                currentItem.isSelected.toggle()
             }
         }
     }
