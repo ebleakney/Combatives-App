@@ -36,12 +36,12 @@ struct ClosedGuardBlueDPView: View {
                 }
             
             List {
-                Section(header: Text("Rear Mt (DP)").foregroundColor(.black).padding().background(Color.blue)) {
+                Section(header: Text("Closed Guard (DP)").foregroundColor(.black).padding().background(Color.blue)) {
                     ForEach(dpScoringItems.indices, id: \.self) { index in
                         ScoringRow(item: self.$dpScoringItems[index])
                     }
                 }
-                Section(header: Text("Rear Mt (NDP)").foregroundColor(.black).padding().background(Color.gray)) {
+                Section(header: Text("Closed Guard (NDP)").foregroundColor(.black).padding().background(Color.gray)) {
                     ForEach(ndpScoringItems.indices, id: \.self) { index in
                         ScoringRow(item: self.$ndpScoringItems[index])
                     }
@@ -80,6 +80,7 @@ struct ClosedGuardBlueDPView: View {
                 Button(action: {
                     // Placeholder action for the next button
                     print("Next button tapped")
+                    //ClosedGuardGreyDPView()
                 }) {
                     Image(systemName: "arrow.right.circle.fill")
                         .resizable()
