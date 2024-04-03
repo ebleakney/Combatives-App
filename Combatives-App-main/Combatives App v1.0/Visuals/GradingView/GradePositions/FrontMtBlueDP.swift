@@ -1,21 +1,21 @@
 import SwiftUI
 
 
-struct RearMountView: View {
+struct FrontMountBlueDPView: View {
     @State private var dpScoringItems: [ScoringItem] = [
         ScoringItem(description: "Lost position or established closed or 1/2 guard (top/bottom)", points: 0, isExtraPoints: false),
-        ScoringItem(description: "Established front, knee, or side mount", points: 3, isExtraPoints: false),
-        ScoringItem(description: "Recovered rear mount", points: 5, isExtraPoints: false),
+        ScoringItem(description: "Established side or knee mount", points: 3, isExtraPoints: false),
+        ScoringItem(description: "Recovered front mount", points: 5, isExtraPoints: false),
         ScoringItem(description: "Maintained", points: 7, isExtraPoints: false),
-        ScoringItem(description: "Rear Naked Choke (RNC)", points: 10, isExtraPoints: false),
-        ScoringItem(description: "Guillotine (extra points)", points: 10, isExtraPoints: true)
+        ScoringItem(description: "Gained rear mount", points: 10, isExtraPoints: false),
+        ScoringItem(description: "RNC or Guillotine (extra points)", points: 10, isExtraPoints: true)
     ]
     
     @State private var ndpScoringItems: [ScoringItem] = [
-        ScoringItem(description: "Got choked", points: 0, isExtraPoints: false),
-        ScoringItem(description: "No escape", points: 3, isExtraPoints: false),
-        ScoringItem(description: "Escape to any other NDP or 1/2 guard (top/bottom)", points: 5, isExtraPoints: false),
-        ScoringItem(description: "Escape to neutral or establish closed guard DP", points: 7, isExtraPoints: false),
+        ScoringItem(description: "No escape", points: 0, isExtraPoints: false),
+        ScoringItem(description: "Escape to bottom 1/2 or neutral", points: 3, isExtraPoints: false),
+        ScoringItem(description: "Escape to closed guard DP or NDP (ATR or shrimp)", points: 5, isExtraPoints: false),
+        ScoringItem(description: "Escape to top 1/2", points: 7, isExtraPoints: false),
         ScoringItem(description: "Escape to top dominant", points: 10, isExtraPoints: false),
         ScoringItem(description: "RNC or Guillotine (extra points)", points: 10, isExtraPoints: true)
     ]
@@ -100,8 +100,8 @@ struct RearMountView: View {
     }
 }
 
-struct RearMountView_Previews: PreviewProvider {
+struct FrontMountBlueView_Previews: PreviewProvider {
     static var previews: some View {
-        RearMountView()
+        FrontMountBlueDPView()
     }
 }

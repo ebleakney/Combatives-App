@@ -9,9 +9,16 @@
 /* Begin PBXBuildFile section */
 		3F61ECC22BBDB58800B2EDA3 /* ScoringItemStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F61ECC12BBDB58800B2EDA3 /* ScoringItemStruct.swift */; };
 		3F61ECC42BBDB5A900B2EDA3 /* ScoringRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F61ECC32BBDB5A900B2EDA3 /* ScoringRow.swift */; };
+		3F61ECC62BBDC1E000B2EDA3 /* RearMtGreyDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F61ECC52BBDC1E000B2EDA3 /* RearMtGreyDP.swift */; };
+		3F61ECC92BBDC2A400B2EDA3 /* FrontMtBlueDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F61ECC82BBDC2A400B2EDA3 /* FrontMtBlueDP.swift */; };
+		3F61ECCB2BBDC2B900B2EDA3 /* FrontMtGreyDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F61ECCA2BBDC2B900B2EDA3 /* FrontMtGreyDP.swift */; };
+		3F61ECCD2BBDC3BA00B2EDA3 /* SideMtBlueDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F61ECCC2BBDC3BA00B2EDA3 /* SideMtBlueDP.swift */; };
+		3F61ECCF2BBDC3D200B2EDA3 /* SideMtGreyDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F61ECCE2BBDC3D200B2EDA3 /* SideMtGreyDP.swift */; };
+		3F61ECD12BBDC45B00B2EDA3 /* ClosedGuardBlueDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F61ECD02BBDC45B00B2EDA3 /* ClosedGuardBlueDP.swift */; };
+		3F61ECD32BBDC46700B2EDA3 /* ClosedGuardGreyDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F61ECD22BBDC46700B2EDA3 /* ClosedGuardGreyDP.swift */; };
 		3F76D6232B96331C0039F4DE /* WarningPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F76D6222B96331C0039F4DE /* WarningPrompt.swift */; };
 		3F7CC1972B59940800A9E3ED /* BlueGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7CC1962B59940800A9E3ED /* BlueGrade.swift */; };
-		3F7CC1992B5ED1F500A9E3ED /* RearMt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7CC1982B5ED1F500A9E3ED /* RearMt.swift */; };
+		3F7CC1992B5ED1F500A9E3ED /* RearMtBlueDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7CC1982B5ED1F500A9E3ED /* RearMtBlueDP.swift */; };
 		3F8442002B7BE5F600758C38 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8441FF2B7BE5F600758C38 /* HomeScreen.swift */; };
 		3F8442062B7E7A3900758C38 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8442052B7E7A3900758C38 /* SidebarView.swift */; };
 		3F8442082B7E7A6100758C38 /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8442072B7E7A6100758C38 /* MainContentView.swift */; };
@@ -73,9 +80,16 @@
 /* Begin PBXFileReference section */
 		3F61ECC12BBDB58800B2EDA3 /* ScoringItemStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoringItemStruct.swift; sourceTree = "<group>"; };
 		3F61ECC32BBDB5A900B2EDA3 /* ScoringRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoringRow.swift; sourceTree = "<group>"; };
+		3F61ECC52BBDC1E000B2EDA3 /* RearMtGreyDP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RearMtGreyDP.swift; sourceTree = "<group>"; };
+		3F61ECC82BBDC2A400B2EDA3 /* FrontMtBlueDP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontMtBlueDP.swift; sourceTree = "<group>"; };
+		3F61ECCA2BBDC2B900B2EDA3 /* FrontMtGreyDP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontMtGreyDP.swift; sourceTree = "<group>"; };
+		3F61ECCC2BBDC3BA00B2EDA3 /* SideMtBlueDP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMtBlueDP.swift; sourceTree = "<group>"; };
+		3F61ECCE2BBDC3D200B2EDA3 /* SideMtGreyDP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMtGreyDP.swift; sourceTree = "<group>"; };
+		3F61ECD02BBDC45B00B2EDA3 /* ClosedGuardBlueDP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosedGuardBlueDP.swift; sourceTree = "<group>"; };
+		3F61ECD22BBDC46700B2EDA3 /* ClosedGuardGreyDP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosedGuardGreyDP.swift; sourceTree = "<group>"; };
 		3F76D6222B96331C0039F4DE /* WarningPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningPrompt.swift; sourceTree = "<group>"; };
 		3F7CC1962B59940800A9E3ED /* BlueGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueGrade.swift; sourceTree = "<group>"; };
-		3F7CC1982B5ED1F500A9E3ED /* RearMt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RearMt.swift; sourceTree = "<group>"; };
+		3F7CC1982B5ED1F500A9E3ED /* RearMtBlueDP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RearMtBlueDP.swift; sourceTree = "<group>"; };
 		3F8441FF2B7BE5F600758C38 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		3F8442052B7E7A3900758C38 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		3F8442072B7E7A6100758C38 /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
@@ -157,11 +171,26 @@
 			path = MainPage;
 			sourceTree = "<group>";
 		};
+		3F61ECC72BBDC23100B2EDA3 /* GradePositions */ = {
+			isa = PBXGroup;
+			children = (
+				3F61ECC52BBDC1E000B2EDA3 /* RearMtGreyDP.swift */,
+				3F61ECC82BBDC2A400B2EDA3 /* FrontMtBlueDP.swift */,
+				3F61ECCC2BBDC3BA00B2EDA3 /* SideMtBlueDP.swift */,
+				3F61ECD02BBDC45B00B2EDA3 /* ClosedGuardBlueDP.swift */,
+				3F61ECD22BBDC46700B2EDA3 /* ClosedGuardGreyDP.swift */,
+				3F61ECCE2BBDC3D200B2EDA3 /* SideMtGreyDP.swift */,
+				3F61ECCA2BBDC2B900B2EDA3 /* FrontMtGreyDP.swift */,
+				3F7CC1982B5ED1F500A9E3ED /* RearMtBlueDP.swift */,
+			);
+			path = GradePositions;
+			sourceTree = "<group>";
+		};
 		3F7CC1952B5993E300A9E3ED /* GradingView */ = {
 			isa = PBXGroup;
 			children = (
 				3F7CC1962B59940800A9E3ED /* BlueGrade.swift */,
-				3F7CC1982B5ED1F500A9E3ED /* RearMt.swift */,
+				3F61ECC72BBDC23100B2EDA3 /* GradePositions */,
 				3F76D6222B96331C0039F4DE /* WarningPrompt.swift */,
 				3F61ECC12BBDB58800B2EDA3 /* ScoringItemStruct.swift */,
 				3F61ECC32BBDB5A900B2EDA3 /* ScoringRow.swift */,
@@ -481,15 +510,19 @@
 				3F76D6232B96331C0039F4DE /* WarningPrompt.swift in Sources */,
 				654353012B644E2B0095F276 /* UpdatePasswordView.swift in Sources */,
 				3F84420A2B7E7A7E00758C38 /* DetailView.swift in Sources */,
+				3F61ECCD2BBDC3BA00B2EDA3 /* SideMtBlueDP.swift in Sources */,
+				3F61ECC62BBDC1E000B2EDA3 /* RearMtGreyDP.swift in Sources */,
 				657FAD522BA0C02C00B4A548 /* SignUpWithEmailViewModel.swift in Sources */,
 				657FAD502BA0C00B00B4A548 /* SignInWithEmailViewModel.swift in Sources */,
 				3F8442062B7E7A3900758C38 /* SidebarView.swift in Sources */,
 				6543528B2B59924B0095F276 /* InitLogin.swift in Sources */,
 				3F8442162B8E49D600758C38 /* StudentObejectManager.swift in Sources */,
+				3F61ECCF2BBDC3D200B2EDA3 /* SideMtGreyDP.swift in Sources */,
 				654352DD2B617CF40095F276 /* SettingsView.swift in Sources */,
 				3F61ECC22BBDB58800B2EDA3 /* ScoringItemStruct.swift in Sources */,
 				654352FF2B644BFB0095F276 /* ResetPasswordView.swift in Sources */,
-				3F7CC1992B5ED1F500A9E3ED /* RearMt.swift in Sources */,
+				3F61ECD32BBDC46700B2EDA3 /* ClosedGuardGreyDP.swift in Sources */,
+				3F7CC1992B5ED1F500A9E3ED /* RearMtBlueDP.swift in Sources */,
 				3F84421B2B8E4AD100758C38 /* GradeListView.swift in Sources */,
 				3F8442182B8E4A0000758C38 /* AddStudentView.swift in Sources */,
 				6543528B2B59924B0095F276 /* InitLogin.swift in Sources */,
@@ -504,7 +537,10 @@
 				3F8442082B7E7A6100758C38 /* MainContentView.swift in Sources */,
 				3F8442002B7BE5F600758C38 /* HomeScreen.swift in Sources */,
 				6543528F2B599C880095F276 /* AuthenticationManager.swift in Sources */,
+				3F61ECCB2BBDC2B900B2EDA3 /* FrontMtGreyDP.swift in Sources */,
 				3F8442112B7E7B7400758C38 /* ClassView.swift in Sources */,
+				3F61ECD12BBDC45B00B2EDA3 /* ClosedGuardBlueDP.swift in Sources */,
+				3F61ECC92BBDC2A400B2EDA3 /* FrontMtBlueDP.swift in Sources */,
 				65A16FD22B7A7457003A0AF9 /* UpdateEmailView.swift in Sources */,
 				3F84420E2B7E7AC700758C38 /* GridView.swift in Sources */,
 				6543528D2B5997AB0095F276 /* SignInWithEmailView.swift in Sources */,
