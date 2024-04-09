@@ -4,47 +4,47 @@ struct AddGradeView: View {
     @Binding var isPresented: Bool
     @Binding var newGrade: String
     @State private var selectedGradeType: String? = nil
-    @State private var shouldNavigate: Bool = false // Added to control navigation programmatically
     
     var body: some View {
-        NavigationStack {
+        NavigationView {
             VStack {
-                Picker("Grade Type", selection: $selectedGradeType) {
-                    Text("Standing GR").tag("Standing GR")
-                    Text("Ground GR").tag("Ground GR")
+                Button(action: {
+                    selectedGradeType = "Standing GR"
+                    isPresented = false // Dismiss the view
+                }) {
+                    Text("Standing GR")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.blue)
+                        .cornerRadius(8)
                 }
-                .pickerStyle(SegmentedPickerStyle())
                 .padding()
                 
-                TextField("Enter grade", text: $newGrade)
-                    .padding()
-                
-                NavigationLink(destination: ROEView(), isActive: $shouldNavigate) {
-                    EmptyView()
-                }
-                /*navigationDestination(isPresented: $shouldNavigate) {
-                    ROEView()
-                }*/
-                
-                Button("Add") {
-                    // Add logic to save the new grade
-                    if selectedGradeType == "Ground GR" {
-                        shouldNavigate = true
-                        isPresented = false
-                    }
+                Button(action: {
+                    selectedGradeType = "Ground GR"
+                    isPresented = false // Dismiss the view
+                    //ROEView()
+                }) {
+                    Text("Ground GR")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.blue)
+                        .cornerRadius(8)
                 }
                 .padding()
                 
                 Spacer()
             }
-            .padding()
             .navigationTitle("Add Grade")
         }
+        .navigationViewStyle(StackNavigationViewStyle()) // Set navigation style for iPad
+        .edgesIgnoringSafeArea(.all) // Ignore safe area to fit full screen
     }
 }
 
 struct AddGradeView_Previews: PreviewProvider {
     static var previews: some View {
         AddGradeView(isPresented: .constant(false), newGrade: .constant(""))
+            .previewDevice("iPad Pro (12.9-inch) (5th generation)")
     }
 }
