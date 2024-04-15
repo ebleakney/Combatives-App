@@ -38,6 +38,6 @@ final class SignInWithEmailViewModel: ObservableObject {
             // ADD GUARD FOR USERNAME
         }
         
-        try await AuthenticationManager.shared.signInUser(email: email, password: password)
+        let authDataResult = try await AuthenticationManager.shared.signInUser(email: email, password: password)
     }
 }
