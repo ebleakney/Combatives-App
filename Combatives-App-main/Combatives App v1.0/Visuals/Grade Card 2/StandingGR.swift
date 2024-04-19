@@ -44,32 +44,9 @@ struct MemoryPointsRowView: View {
 
         HStack {
 
-            ForEach(0..<3) { _ in
-
-                Button(action: {
-
-                    if self.lastTapped != self.points {
-
-                        self.totalPoints -= self.lastTapped ?? 0
-
-                        self.totalPoints += self.points
-
-                        self.lastTapped = self.points
-
-                    }
-
-                }) {
-
-                    Text("\(self.points)")
-
-                        .frame(width: 30, height: 30)
-
-                        .foregroundColor(.black)
-
-                        .background(lastTapped == points ? Color.blue : Color.clear)
-
-                        .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.black, lineWidth: 1))
-
+            ForEach(0..<3) { index in
+                ForEach(0..<3) { index in
+                    CheckboxView(checked: self.bindingForPoint(index), label: "\(self.points)")
                 }
 
             }
@@ -78,7 +55,29 @@ struct MemoryPointsRowView: View {
 
     }
 
+    private func bindingForPoint(_ index: Int) -> Binding<Bool> {
+        Binding<Bool>(
+            get: {
+                return self.lastTapped == self.points
+            },
+            set: { newValue in
+                if newValue {
+                    if self.lastTapped != self.points {
+                        self.totalPoints += self.points
+                        self.lastTapped = self.points
+                    }
+                } else {
+                    if self.lastTapped == self.points {
+                        self.totalPoints -= self.points
+                        self.lastTapped = nil
+                    }
+                }
+            }
+        )
+    }
 }
+
+
  
 struct StandingGradeCardView: View {
 
