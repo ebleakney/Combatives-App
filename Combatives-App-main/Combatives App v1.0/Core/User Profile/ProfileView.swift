@@ -19,6 +19,16 @@ final class ProfileViewModel: ObservableObject {
         let authDataResult = try AuthenticationManager.shared.getAuthenticatedUser()
         self.user = try await UserManager.shared.getUser(userId: authDataResult.uid)
     }
+    
+    func toggleInstructorStatus() {
+        guard let user else {return}
+        let curVal = user.isInstructor ?? false
+        let updatedUser = DBUser(userId: user.userId, email: user.email, photoUrl: user.photoUrl, dateCreated: user.dateCreated, isInstructor: !curVal)
+        Task {
+            try await UserManager.shared.updateInstructorStatus(user: user)
+            self.user = try await UserManager.shared.getUser(userId: user.userId)
+        }
+    }
 }
 
 
@@ -33,7 +43,11 @@ struct ProfileView: View {
             if let user = viewModel.user {
                 Text("UserID: \(user.userId)")
                 
-                
+                Button {
+                    viewModel.toggleInstructorStatus()
+                } label: {
+                    Text("User is an instructor: \((user.isInstructor ?? false).description.capitalized)")
+                }
             }
         }
         .task {
