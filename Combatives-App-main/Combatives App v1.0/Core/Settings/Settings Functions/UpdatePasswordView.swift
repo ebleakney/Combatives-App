@@ -14,6 +14,9 @@ class UpdatePasswordViewModel: ObservableObject {
     @Published var confirmPassword: String = ""
     @Published var errorMessage: String?
     @Published var passwordUpdated: Bool = false
+    @Published var showOldPassword: Bool = false
+    @Published var showNewPassword: Bool = false
+    @Published var showConfirmPassword: Bool = false
 
     func verifyOldPassword() async -> Bool {
         // Assuming you have a way to retrieve the current user's email
@@ -59,19 +62,13 @@ struct UpdatePasswordView: View {
 
     var body: some View {
         VStack {
-            TextField("Enter your old password", text: $viewModel.oldPassword)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .autocapitalization(.none)
+            passwordField(title: "Enter your old password", text: $viewModel.oldPassword, showPassword: $viewModel.showOldPassword)
                 .padding()
 
-            TextField("Enter your new password", text: $viewModel.newPassword)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .autocapitalization(.none)
+            passwordField(title: "Enter your new password", text: $viewModel.newPassword, showPassword: $viewModel.showNewPassword)
                 .padding()
 
-            TextField("Re-enter your new password", text: $viewModel.confirmPassword)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .autocapitalization(.none)
+            passwordField(title: "Re-enter your new password", text: $viewModel.confirmPassword, showPassword: $viewModel.showConfirmPassword)
                 .padding()
 
             if let errorMessage = viewModel.errorMessage {
@@ -91,6 +88,26 @@ struct UpdatePasswordView: View {
                 }
             }
             .padding()
+        }
+    }
+    
+    @ViewBuilder
+    private func passwordField(title: String, text: Binding<String>, showPassword: Binding<Bool>) -> some View {
+        HStack {
+            if showPassword.wrappedValue {
+                TextField(title, text: text)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocapitalization(.none)
+            } else {
+                SecureField(title, text: text)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocapitalization(.none)
+            }
+            Button(action: {
+                showPassword.wrappedValue.toggle()
+            }) {
+                Image(systemName: showPassword.wrappedValue ? "eye.slash.fill" : "eye.fill")
+            }
         }
     }
 }

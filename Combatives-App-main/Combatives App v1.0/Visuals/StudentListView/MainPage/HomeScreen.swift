@@ -1,13 +1,5 @@
 import SwiftUI
 
-// enables the sidebar selections in the Sidebar View
-enum SidebarSelection: Int, Hashable {
-    case home
-    case actions
-    case settings
-    case profile
-}
-
 struct HomeScreenView: View {
     @State private var selection: SidebarSelection? = .home
     @Binding var showSignInView: Bool
@@ -16,10 +8,10 @@ struct HomeScreenView: View {
         NavigationSplitView {
             SidebarView(selection: $selection)
         } content: {
-            MainContentView(selection: $selection)
+            SidebarContentView(selection: $selection)
         } detail: {
             if let selection = selection {
-                DetailView(selection: selection.rawValue)
+                HomeView()
             } else {
                 VStack {
                     GridView()

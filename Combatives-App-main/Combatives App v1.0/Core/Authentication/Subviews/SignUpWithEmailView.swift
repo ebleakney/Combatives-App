@@ -19,12 +19,14 @@ struct SignUpWithEmailView: View {
             VStack(alignment: .leading) {
                 TextField("Email...", text: $viewModel.email)
                     .padding()
+                    .foregroundColor(.black)
                     .background(Color.gray.opacity(0.4))
                     .cornerRadius(10.0)
                     .autocapitalization(.none)
                 
                 SecureField("Password...", text: $viewModel.password)
                     .padding()
+                    .foregroundColor(.black)
                     .background(Color.gray.opacity(0.4))
                     .cornerRadius(10.0)
                     .autocapitalization(.none)

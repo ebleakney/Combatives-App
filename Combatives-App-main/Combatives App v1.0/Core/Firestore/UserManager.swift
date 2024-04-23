@@ -15,13 +15,31 @@ struct DBUser: Codable {
     let photoUrl : String?
     let dateCreated : Date?
     let isInstructor: Bool?
+    /*
+    //firebase documents all students will need
+    //create a separate struct for students bc they won't be authenticating/wont be actual DBusers?
+    let standingGrGrade: Int?
+    let groundGrGrade: Int?
+    let name: String?
+    let gender: String?
+    let weight: Int?
+    let skillLevel: Int?
+     */
     
     init(auth: AuthDataResultModel) {
-        self.userId=auth.uid
-        self.email=auth.email ?? "No email"
-        self.photoUrl=auth.photoUrl
-        self.dateCreated=Date()
-        self.isInstructor=false
+        self.userId = auth.uid
+        self.email = auth.email ?? "No email"
+        self.photoUrl = auth.photoUrl
+        self.dateCreated = Date()
+        self.isInstructor = false
+        /*
+        self.standingGrGrade = 0
+        self.groundGrGrade = 0
+        self.name = "No Name Entered"
+        self.gender = "No Gender Entered"
+        self.weight = 99999
+        self.skillLevel = 0
+         */
     }
     
     init(

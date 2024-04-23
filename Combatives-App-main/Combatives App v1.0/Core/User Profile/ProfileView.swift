@@ -25,7 +25,7 @@ final class ProfileViewModel: ObservableObject {
         let curVal = user.isInstructor ?? false
         let updatedUser = DBUser(userId: user.userId, email: user.email, photoUrl: user.photoUrl, dateCreated: user.dateCreated, isInstructor: !curVal)
         Task {
-            try await UserManager.shared.updateInstructorStatus(user: user)
+            try await UserManager.shared.updateInstructorStatus(user: updatedUser)
             self.user = try await UserManager.shared.getUser(userId: user.userId)
         }
     }
@@ -54,7 +54,7 @@ struct ProfileView: View {
             try? await viewModel.loadCurrentUser()
         }
         .navigationTitle("Profile")
-        .toolbar {
+       /* .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 NavigationLink {
                     SettingsView(showSignInView: $showSignInView)
@@ -63,7 +63,7 @@ struct ProfileView: View {
                         .font(.headline)
                 }
             }
-        }
+        }*/
     }
 }
 

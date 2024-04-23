@@ -38,15 +38,15 @@ struct SidebarView: View {
             switch selection {
             case .home:
                 // Return the home content view
-                Text("Home Content")
+                HomeView()
             case .actions:
                 // Return the actions content view
-                Text("Actions Content")
+                ActionsView()
             case .settings:
                 // Return the settings view
                 SettingsView(showSignInView: .constant(false))
             case .profile:
-                Text("Profile View")
+                ProfileView(showSignInView: .constant(false))
             }
         }
         .listStyle(SidebarListStyle())
