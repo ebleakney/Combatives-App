@@ -23,9 +23,9 @@ final class ProfileViewModel: ObservableObject {
     func toggleInstructorStatus() {
         guard let user else {return}
         let curVal = user.isInstructor ?? false
-        let updatedUser = DBUser(userId: user.userId, email: user.email, photoUrl: user.photoUrl, dateCreated: user.dateCreated, isInstructor: !curVal)
+        
         Task {
-            try await UserManager.shared.updateInstructorStatus(user: updatedUser)
+            try await UserManager.shared.updateInstructorStatus(userId: user.userId, isInstructor: !curVal)
             self.user = try await UserManager.shared.getUser(userId: user.userId)
         }
     }
@@ -47,6 +47,25 @@ struct ProfileView: View {
                     viewModel.toggleInstructorStatus()
                 } label: {
                     Text("User is an instructor: \((user.isInstructor ?? false).description.capitalized)")
+                }
+                HStack {
+                    Button("Sports") {
+                        
+                    }
+                    .font(.headline)
+                    .buttonStyle(.borderedProminent)
+                    
+                    Button("Movies") {
+                        
+                    }
+                    .font(.headline)
+                    .buttonStyle(.borderedProminent)
+                    
+                    Button("Books") {
+                        
+                    }
+                    .font(.headline)
+                    .buttonStyle(.borderedProminent)
                 }
             }
         }
