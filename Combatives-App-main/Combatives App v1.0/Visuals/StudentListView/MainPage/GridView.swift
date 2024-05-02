@@ -15,7 +15,7 @@ struct GridView: View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 20) {
                 ForEach(0..<9) { item in
-                    NavigationLink(destination: ClassDetailView(className: "Class \(item)")) {
+                    NavigationLink(destination: ClassView()) {
                         ZStack {
                             Rectangle()
                                 .foregroundColor(Color(hue: Double(item) / 9.0, saturation: 0.3, brightness: 0.9))

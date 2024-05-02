@@ -28,7 +28,7 @@ struct StudentListView: View {
                     .foregroundColor(.green)
             })
             .sheet(isPresented: $isAddingStudent) {
-                AddStudentView(studentStore: studentStore, isPresented: $isAddingStudent)
+                AddStudentView()
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())

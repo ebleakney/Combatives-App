@@ -17,6 +17,8 @@ struct DBUser: Codable {
     let photoUrl : String?
     let dateCreated : Date?
     let isInstructor: Bool?
+    let classList: [String]?
+    // add class list here
     
     init(auth: AuthDataResultModel) {
         self.userId = auth.uid
@@ -24,6 +26,7 @@ struct DBUser: Codable {
         self.photoUrl = auth.photoUrl
         self.dateCreated = Date()
         self.isInstructor = false
+        self.classList = nil
     }
     
     init(
@@ -31,13 +34,15 @@ struct DBUser: Codable {
         email : String,
         photoUrl : String? = nil,
         dateCreated : Date? = nil,
-        isInstructor: Bool? = nil
+        isInstructor: Bool? = nil,
+        classList: [String]? = nil
     ) {
         self.userId=userId
         self.email=email
         self.photoUrl=photoUrl
         self.dateCreated=dateCreated
         self.isInstructor=isInstructor
+        self.classList=classList
     }
     
     //takes the current dbuser struct and creates & returns a new dbuser struct
@@ -64,6 +69,7 @@ struct DBUser: Codable {
         case photoUrl = "photo_url"
         case dateCreated = "date_created"
         case isInstructor = "is_instructor"
+        case classList = "class_list"
     }
     
     init(from decoder: Decoder) throws {
@@ -73,6 +79,7 @@ struct DBUser: Codable {
         self.photoUrl = try container.decodeIfPresent(String.self, forKey: .photoUrl)
         self.dateCreated = try container.decodeIfPresent(Date.self, forKey: .dateCreated)
         self.isInstructor = try container.decodeIfPresent(Bool.self, forKey: .isInstructor)
+        self.classList = try container.decodeIfPresent([String].self, forKey: .classList)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -82,6 +89,7 @@ struct DBUser: Codable {
         try container.encodeIfPresent(self.photoUrl, forKey: .photoUrl)
         try container.encodeIfPresent(self.dateCreated, forKey: .dateCreated)
         try container.encodeIfPresent(self.isInstructor, forKey: .isInstructor)
+        try container.encodeIfPresent(self.classList, forKey: .classList)
     }
 }
 

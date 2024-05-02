@@ -37,6 +37,40 @@ struct DBStudent: Codable {
         self.skillLevel = skillLevel
     }
     
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case standingGrGrade = "standing_gr_grade"
+        case groundGrGrade = "ground_gr_grade"
+        case name = "name"
+        case gender = "gender"
+        case weight = "weight"
+        case skillLevel = "skill_level"
+    }
+
+    // Custom initializer from Decoder
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(String.self, forKey: .id)
+        standingGrGrade = try container.decodeIfPresent(Int.self, forKey: .standingGrGrade)
+        groundGrGrade = try container.decodeIfPresent(Int.self, forKey: .groundGrGrade)
+        name = try container.decodeIfPresent(String.self, forKey: .name)
+        gender = try container.decodeIfPresent(String.self, forKey: .gender)
+        weight = try container.decodeIfPresent(Int.self, forKey: .weight)
+        skillLevel = try container.decodeIfPresent(Int.self, forKey: .skillLevel)
+    }
+
+    // Custom method to encode to an encoder
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encodeIfPresent(standingGrGrade, forKey: .standingGrGrade)
+        try container.encodeIfPresent(groundGrGrade, forKey: .groundGrGrade)
+        try container.encodeIfPresent(name, forKey: .name)
+        try container.encodeIfPresent(gender, forKey: .gender)
+        try container.encodeIfPresent(weight, forKey: .weight)
+        try container.encodeIfPresent(skillLevel, forKey: .skillLevel)
+    }
+    
     
 }
 
@@ -44,7 +78,7 @@ struct DBStudent: Codable {
 
 
 final class StudentManager {
-    private static let shared = StudentManager()
+    static let shared = StudentManager()
     private init() {}
     
     private let studentCollection = Firestore.firestore().collection("students")
