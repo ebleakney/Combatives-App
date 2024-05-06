@@ -76,9 +76,9 @@ final class ClassManager {
     static let shared = ClassManager()
     private init() { }
     
-    private let classCollection = Firestore.firestore().collection("classes")
+    let classCollection = Firestore.firestore().collection("classes")
     
-    private func classDocument(classId: String) -> DocumentReference {
+    func classDocument(classId: String) -> DocumentReference {
         classCollection.document(classId)
     }
     
