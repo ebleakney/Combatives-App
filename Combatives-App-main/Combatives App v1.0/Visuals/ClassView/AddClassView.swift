@@ -48,22 +48,32 @@ struct AddClassView: View {
     @StateObject private var viewModel = AddClassViewModel()
 
     var body: some View {
-        Form {
-            TextField("Class Name", text: $viewModel.className)
-            TextField("Go Period", text: $viewModel.goPeriod)
-            TextField("Semester", text: $viewModel.semester)
-            TextField("Year", text: $viewModel.year)
-            TextField("Section", text: $viewModel.section)
-            
-            Button("Submit") {
-                Task {
-                    await viewModel.createNewClass()
+        NavigationStack {
+            Form {
+                TextField("Class Name", text: $viewModel.className)
+                TextField("Go Period", text: $viewModel.goPeriod)
+                TextField("Semester", text: $viewModel.semester)
+                TextField("Year", text: $viewModel.year)
+                TextField("Section", text: $viewModel.section)
+                
+                Button("Submit") {
+                    Task {
+                        await viewModel.createNewClass()
+                    }
+                }
+                .disabled(viewModel.className.isEmpty || viewModel.semester.isEmpty)
+            }
+            .navigationTitle("Add New Class")
+            .navigationDestination(isPresented: $viewModel.navigateToClassView) {
+                // Assuming ClassView is correctly implemented to accept a DBClass
+                if let createdClass = viewModel.createdClass {
+                    ClassView(dbClass: createdClass)
+                } else {
+                    // Handle the case where the navigation is triggered without a valid class
+                    Text("Error: No class data available.").foregroundColor(.red)
                 }
             }
-            .disabled(viewModel.className.isEmpty || viewModel.semester.isEmpty)
         }
-        .navigationTitle("Add New Class")
-        .background(NavigationLink(destination: ClassView(dbClass: viewModel.createdClass), isActive: $viewModel.navigateToClassView) { EmptyView() })
     }
 }
 

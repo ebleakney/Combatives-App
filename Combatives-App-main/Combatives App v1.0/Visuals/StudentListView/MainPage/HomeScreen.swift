@@ -11,7 +11,7 @@ struct HomeScreenView: View {
             SidebarContentView(selection: $selection)
         } detail: {
             if let selection = selection {
-                HomeView()
+                GridView()
             } else {
                 VStack {
                     GridView()

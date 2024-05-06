@@ -37,8 +37,8 @@ struct SidebarView: View {
         .navigationDestination(for: SidebarSelection.self) { selection in
             switch selection {
             case .home:
-                // Return the home content view
-                HomeView()
+                // GridView is home view
+                GridView()
             case .actions:
                 // Return the actions content view
                 ActionsView()
