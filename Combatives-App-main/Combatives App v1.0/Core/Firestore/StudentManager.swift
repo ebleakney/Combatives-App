@@ -9,7 +9,7 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-struct DBStudent: Codable {
+struct DBStudent: Codable, Identifiable {
     let id: String
     let standingGrGrade: Int?
     let groundGrGrade: Int?
@@ -81,14 +81,38 @@ final class StudentManager {
     static let shared = StudentManager()
     private init() {}
     
-    private let studentCollection = Firestore.firestore().collection("students")
+    let studentCollection = Firestore.firestore().collection("students")
+    let classCollection = Firestore.firestore().collection("classes")
     
     private func studentDocument(studentId: String) -> DocumentReference {
         studentCollection.document(studentId)
     }
     
+//    private func classDocument(classId: String) -> DocumentReference {
+//        classCollection.document(classId)
+//    }
     
     
+    // Create a new student and add their ID to the class's student list
+    func createNewStudent(student: DBStudent, classId: String) async throws {
+        try studentDocument(studentId: student.id).setData(from: student, merge: false)
+
+        // Fetch the class document
+        let classRef = classCollection.document(classId)
+        let classDoc = try await classRef.getDocument()
+        
+        if var studentList = classDoc.data()?["student_list"] as? [String] {
+            // Append the new student's ID to the list
+            studentList.append(student.id)
+            // Update the class document
+            try await classRef.updateData(["student_list": studentList])
+        } else {
+            // Initialize the list if it doesn't exist
+            try await classRef.updateData(["student_list": [student.id]])
+        }
+    }
+    
+    // create a new student regularly
     func createNewStudent(student: DBStudent) async throws {
         try studentDocument(studentId: student.id).setData(from: student, merge: false)
     }
@@ -104,35 +128,56 @@ final class StudentManager {
         try studentDocument(studentId: student.id).setData(from: student, merge: true)
     }
     
-    //updates only the isInstructor value
-    /*func updateGrades(studentId: String, standingGrGrade: Int, groundGrGrade: Int) async throws {
+    //updates only the gr grades
+    func updateGrades(studentId: String, standingGrGrade: Int, groundGrGrade: Int) async throws {
         let data: [String:Any] = [
-            DBStudent.CodingKeys.standingGrGrade.rawValue: standingGrGrade
+            DBStudent.CodingKeys.standingGrGrade.rawValue: standingGrGrade,
             DBStudent.CodingKeys.groundGrGrade.rawValue: groundGrGrade
         ]
         try await studentDocument(studentId: studentId).updateData(data)
-    }*/
+    }
+    
+    func deleteStudent(studentId: String) async throws {
+        let studentDoc = studentDocument(studentId: studentId)
+        try await studentDoc.delete()
+    }
 
+    //update only the standing gr grade
+    func updateStandingGrGrade(studentId: String, standingGrGrade: Int?) async throws {
+        var data = [String: Any]()
+        if let standingGrGrade = standingGrGrade {
+            data["standing_gr_grade"] = standingGrGrade
+        }
+        let studentDoc = studentDocument(studentId: studentId)
+        try await studentDoc.updateData(data)
+    }
+    
+    //update only the ground gr grade
+    func updateGroundGrGrade(studentId: String, groundGrGrade: Int?) async throws {
+        var data = [String: Any]()
+        if let groundGrGrade = groundGrGrade {
+            data["ground_gr_grade"] = groundGrGrade
+        }
+        let studentDoc = studentDocument(studentId: studentId)
+        try await studentDoc.updateData(data)
+    }
+    
+    // Method to fetch all students for a given class ID
+    func fetchStudentsForClass(classId: String) async throws -> [DBStudent] {
+        let classDoc = try await Firestore.firestore().collection("classes").document(classId).getDocument()
+        guard let studentIDs = classDoc.data()?["student_list"] as? [String] else {
+            return []
+        }
+        return try await fetchStudents(studentIDs: studentIDs)
+    }
+
+    // fetch multiple students based on studentId
+    func fetchStudents(studentIDs: [String]) async throws -> [DBStudent] {
+        var students: [DBStudent] = []
+        for id in studentIDs {
+            let student = try await getStudent(studentId: id)
+            students.append(student)
+        }
+        return students
+    }
 }
-
-/*
-//firebase documents all students will need
-//create a separate struct for students bc they won't be authenticating/wont be actual DBusers?
-let standingGrGrade: Int?
-let groundGrGrade: Int?
-let name: String?
-let gender: String?
-let weight: Int?
-let skillLevel: Int?
- */
-
-
-
-/*
-self.standingGrGrade = 0
-self.groundGrGrade = 0
-self.name = "No Name Entered"
-self.gender = "No Gender Entered"
-self.weight = 99999
-self.skillLevel = 0
- */

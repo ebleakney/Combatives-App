@@ -8,24 +8,20 @@
 import SwiftUI
 
 struct GradeListView: View {
-    var student: Student
-    @ObservedObject var studentStore: StudentStore
+    var student: DBStudent
     @State private var editedStandingGrade: String
     @State private var editedGroundGrade: String
-    @State private var isAddingGrade = false
-    @State private var newGrade: String = ""
     @State private var showConfirmationAlert = false
     
-    init(student: Student, studentStore: StudentStore) {
+    init(student: DBStudent) {
         self.student = student
-        self.studentStore = studentStore
-        _editedStandingGrade = State(initialValue: "\(student.standingGrade.points)")
-        _editedGroundGrade = State(initialValue: "\(student.groundGrade.points)")
+        _editedStandingGrade = State(initialValue: "\(student.standingGrGrade ?? 0)")
+        _editedGroundGrade = State(initialValue: "\(student.groundGrGrade ?? 0)")
     }
     
     var body: some View {
         VStack {
-            Text("Grades for \(student.name)")
+            Text("Grades for \(student.name ?? "Unknown")")
                 .font(.title)
                 .padding()
             
@@ -43,21 +39,17 @@ struct GradeListView: View {
             
             Button("Save") {
                 if let standingGrade = Int(editedStandingGrade), let groundGrade = Int(editedGroundGrade) {
-                    let updatedStandingGrade = Grade(grade: "Standing GR", points: standingGrade)
-                    let updatedGroundGrade = Grade(grade: "Ground GR", points: groundGrade)
-                    studentStore.updateStudentGrades(student: student, standingGrade: updatedStandingGrade, groundGrade: updatedGroundGrade)
-                    showConfirmationAlert = true
+                    Task {
+                        do {
+                            try await StudentManager.shared.updateGrades(studentId: student.id, standingGrGrade: standingGrade, groundGrGrade: groundGrade)
+                            showConfirmationAlert = true
+                        } catch {
+                            print("Error updating grades: \(error)")
+                        }
+                    }
                 }
             }
             .padding()
-            
-            Button("Add Grade") {
-                isAddingGrade = true
-            }
-            .padding()
-            .sheet(isPresented: $isAddingGrade) {
-                AddGradeView(isPresented: $isAddingGrade, newGrade: $newGrade)
-            }
             
             Spacer()
         }
@@ -66,21 +58,5 @@ struct GradeListView: View {
         .alert(isPresented: $showConfirmationAlert) {
             Alert(title: Text("Grade Saved"), message: Text("The grades have been saved successfully."), dismissButton: .default(Text("OK")))
         }
-    }
-}
-
-
-
-/// Might be obselete at this point but idk
-struct GradeRow: View {
-    var grade: Grade
-    
-    var body: some View {
-        HStack {
-            Text(grade.grade)
-            Spacer()
-            Text("\(grade.points) points")
-        }
-        .padding()
     }
 }

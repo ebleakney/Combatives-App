@@ -1,48 +1,23 @@
+//
+//StudentView.swift
+//
+
 import SwiftUI
 
-struct StudentListView: View {
-    @ObservedObject var studentStore = StudentStore()
-    @Environment(\.presentationMode) var presentationMode
-    @State private var isAddingStudent = false
-    
-    var body: some View {
-        NavigationView {
-            List {
-                ForEach(studentStore.students) { student in
-                    NavigationLink(destination: GradeListView(student: student, studentStore: studentStore)) {
-                        Text(student.name)
-                    }
-                }
-                .onDelete(perform: studentStore.deleteStudent)
-            }
-            .navigationTitle("Students")
-            .navigationBarItems(trailing: Button(action: {
-                presentationMode.wrappedValue.dismiss()
-            }) {
-                Image(systemName: "arrow.right")
-            })
-            .navigationBarItems(leading: Button(action: {
-                isAddingStudent = true
-            }) {
-                Image(systemName: "plus")
-                    .foregroundColor(.green)
-            })
-            .sheet(isPresented: $isAddingStudent) {
-                AddStudentView()
-            }
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
-    }
-}
-
 struct StudentView: View {
-    var body: some View {
-        StudentListView()
-    }
-}
+    var student: DBStudent
 
-struct StudentView_Previews: PreviewProvider {
-    static var previews: some View {
-        StudentView()
+    var body: some View {
+        NavigationStack {
+            VStack(alignment: .leading) {
+                Text("Name: \(student.name ?? "Unknown")")
+                Text("Gender: \(student.gender ?? "Not provided")")
+                Text("Weight: \(student.weight.map(String.init) ?? "Not provided") lbs")
+                Text("Skill Level: \(student.skillLevel.map(String.init) ?? "Not provided")")
+                // Add more properties as needed
+            }
+            .navigationBarTitle("Student Details", displayMode: .inline)
+            .padding()
+        }
     }
 }

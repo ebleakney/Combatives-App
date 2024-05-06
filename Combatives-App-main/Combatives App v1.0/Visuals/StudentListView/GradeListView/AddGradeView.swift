@@ -1,55 +1,49 @@
+//
+//  AddGradeView.swift
+//  Combatives App v1.0
+//
+//  Created by James Huber on 2/27/24.
+//
+
 import SwiftUI
 
 struct AddGradeView: View {
     @Binding var isPresented: Bool
-    @Binding var newGrade: String
-    @State private var selectedGradeType: String? = nil
-    @State private var navigateToROEView = false // State variable to control navigation
-
+    var studentId: String
+    @State private var gradePoints: Int = 0
+    @State private var isStandingGrade: Bool = true // Default to true
+    
     var body: some View {
         NavigationView {
             VStack {
-                Button(action: {
-                    selectedGradeType = "Standing GR"
-                    isPresented = false // Dismiss the view
-                }) {
-                    Text("Standing GR")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.blue)
-                        .cornerRadius(8)
-                }
-                .padding()
+                Toggle("Is Standing Grade", isOn: $isStandingGrade)
+                    .padding()
                 
-                NavigationLink(destination: ROEView(), isActive: $navigateToROEView) {
-                    EmptyView() // Invisible link to ROEView
-                }
+                TextField("Grade Points", value: $gradePoints, formatter: NumberFormatter())
+                    .keyboardType(.numberPad)
+                    .padding()
                 
-                Button(action: {
-                    selectedGradeType = "Ground GR"
-                    isPresented = true // Dismiss the view
-                    navigateToROEView = true // Activate navigation to ROEView
-                }) {
-                    Text("Ground GR")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.blue)
-                        .cornerRadius(8)
+                Button("Save Grade") {
+                    Task {
+                        do {
+                            if isStandingGrade {
+                                try await StudentManager.shared.updateStandingGrGrade(studentId: studentId, standingGrGrade: gradePoints)
+                            } else {
+                                try await StudentManager.shared.updateGroundGrGrade(studentId: studentId, groundGrGrade: gradePoints)
+                            }
+                            isPresented = false
+                        } catch {
+                            print("Failed to add/update grade: \(error)")
+                        }
+                    }
                 }
                 .padding()
                 
                 Spacer()
             }
-            .navigationTitle("Add Grade")
+            .navigationTitle("Add/Edit Grade")
         }
-        .navigationViewStyle(StackNavigationViewStyle()) // Set navigation style for iPad
-        .edgesIgnoringSafeArea(.all) // Ignore safe area to fit full screen
-    }
-}
-
-struct AddGradeView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddGradeView(isPresented: .constant(false), newGrade: .constant(""))
-            .previewDevice("iPad Pro (12.9-inch) (5th generation)")
+        .navigationViewStyle(StackNavigationViewStyle())
+        .edgesIgnoringSafeArea(.all)
     }
 }
