@@ -10,25 +10,22 @@ struct HomeScreenView: View {
         } content: {
             SidebarContentView(selection: $selection)
         } detail: {
-            if let selection = selection {
+            VStack {
                 GridView()
-            } else {
-                VStack {
-                    GridView()
-                }
-                .padding(.top)
-                .padding(.trailing) // Add padding to shift UserProfileView to the right
-                .overlay(
-                    ProfileView(showSignInView: $showSignInView)
-                        .padding(.bottom)
-                        .padding(.trailing)
-                    , alignment: .topTrailing
-                )
             }
+            .padding(.top)
+            .padding(.trailing) // Add padding to shift UserProfileView to the right
+//            .overlay(
+//                ProfileView(showSignInView: $showSignInView)
+//                    .padding(.bottom)
+//                    .padding(.trailing)
+//                , alignment: .topTrailing
+//            )
         }
         .frame(minWidth: 800, minHeight: 600)
     }
 }
+
 
 
 struct HomeScreenView_Previews: PreviewProvider {
