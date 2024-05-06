@@ -23,6 +23,8 @@ struct RearMountGreyDPView: View {
     @State private var timerIsRunning = false
     @State private var timeElapsed: TimeInterval = 0
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var navigateToBlueGradeView = false // State variable to control navigation to the next view
+
 
     var body: some View {
         VStack {
@@ -77,9 +79,16 @@ struct RearMountGreyDPView: View {
                 
                 Spacer()
                 
+                NavigationLink(destination: /*GradeSheetView()*/EmptyView(), isActive: $navigateToBlueGradeView) {
+                    EmptyView() // Invisible link to NextView
+                }
+                /*TODO*/
+                // NEEDS POINT TOTALING FOR THE INPUTS INTO THE GRADEVIEW
+                
                 Button(action: {
                     // Placeholder action for the next button
                     print("Next button tapped")
+                    self.navigateToBlueGradeView = true
                 }) {
                     Image(systemName: "arrow.right.circle.fill")
                         .resizable()

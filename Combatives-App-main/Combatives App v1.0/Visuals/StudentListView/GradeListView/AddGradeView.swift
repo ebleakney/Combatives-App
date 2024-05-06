@@ -4,7 +4,8 @@ struct AddGradeView: View {
     @Binding var isPresented: Bool
     @Binding var newGrade: String
     @State private var selectedGradeType: String? = nil
-    
+    @State private var navigateToROEView = false // State variable to control navigation
+
     var body: some View {
         NavigationView {
             VStack {
@@ -20,10 +21,14 @@ struct AddGradeView: View {
                 }
                 .padding()
                 
+                NavigationLink(destination: ROEView(), isActive: $navigateToROEView) {
+                    EmptyView() // Invisible link to ROEView
+                }
+                
                 Button(action: {
                     selectedGradeType = "Ground GR"
-                    isPresented = false // Dismiss the view
-                    //ROEView()
+                    isPresented = true // Dismiss the view
+                    navigateToROEView = true // Activate navigation to ROEView
                 }) {
                     Text("Ground GR")
                         .padding()

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ROEView: View {
     @State private var allowToGrade: Bool = false
-
+    
     let roeList = [
         "No standing",
         "No slamming",
@@ -48,22 +48,16 @@ struct ROEView: View {
                 }
                 .padding()
 
-                Spacer()
-
-                Button(action: {
-                    self.allowToGrade = false
-                }) {
-                    Image(systemName: "xmark.circle.fill")
-                        .resizable()
-                        .foregroundColor(.red)
-                        .frame(width: 50, height: 50)
-                }
-                .padding()
 
                 Spacer()
             }
         }
         .padding()
+        .background(
+            NavigationLink(destination: ClosedGuardBlueDPView(), isActive: $allowToGrade) {
+                EmptyView() // Invisible link to ClosedGuardBlueDPView
+            }
+        )
     }
 }
 

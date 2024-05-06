@@ -23,6 +23,8 @@ struct FrontMountGreyDPView: View {
     @State private var timerIsRunning = false
     @State private var timeElapsed: TimeInterval = 0
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var navigateToRearMtBlueView = false // State variable to control navigation to the next view
+
 
     var body: some View {
         VStack {
@@ -77,9 +79,14 @@ struct FrontMountGreyDPView: View {
                 
                 Spacer()
                 
+                NavigationLink(destination: RearMountBlueDPView(), isActive: $navigateToRearMtBlueView) {
+                    EmptyView() // Invisible link to NextView
+                }
+                
                 Button(action: {
                     // Placeholder action for the next button
                     print("Next button tapped")
+                    self.navigateToRearMtBlueView = true
                 }) {
                     Image(systemName: "arrow.right.circle.fill")
                         .resizable()
