@@ -72,7 +72,7 @@ struct StudentListView: View {
     }
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ForEach(viewModel.students, id: \.id) { student in
                     NavigationLink(destination: StudentView(student: student)) {
@@ -91,7 +91,6 @@ struct StudentListView: View {
                 AddStudentView(classId: classId)
             }
         }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     private func deleteStudents(at offsets: IndexSet) {
