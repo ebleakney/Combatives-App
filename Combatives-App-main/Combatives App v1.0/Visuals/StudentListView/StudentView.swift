@@ -35,7 +35,7 @@ struct StudentView: View {
                             .cornerRadius(10)
                     }
                     .padding(.trailing, 10) // Add padding between buttons
-
+                    /*
                     // Button to show AddGradeView
                     Button("Add GR Grades") {
                         showAddGradeView = true
@@ -44,6 +44,7 @@ struct StudentView: View {
                     .padding()
                     .background(Color.green)
                     .cornerRadius(10)
+                     */
                     Spacer() // Spacer after the buttons for center alignment
                 }
                 .padding(.top) // Additional padding on top of the buttons
