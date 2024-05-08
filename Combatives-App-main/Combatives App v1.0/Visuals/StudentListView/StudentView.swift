@@ -37,7 +37,7 @@ struct StudentView: View {
                     .padding(.trailing, 10) // Add padding between buttons
                     /*
                     // Button to show AddGradeView
-                    Button("Add GR Grades") {
+                    Button("Grade Ground Gr") {
                         showAddGradeView = true
                     }
                     .foregroundColor(.white)
