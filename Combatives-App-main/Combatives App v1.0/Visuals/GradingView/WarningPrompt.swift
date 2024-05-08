@@ -2,7 +2,8 @@ import SwiftUI
 
 struct ROEView: View {
     @State private var allowToGrade: Bool = false
-    
+    var students: [DBStudent] // Array to hold students
+
     let roeList = [
         "No standing",
         "No slamming",
@@ -54,7 +55,7 @@ struct ROEView: View {
         }
         .padding()
         .background(
-            NavigationLink(destination: ClosedGuardBlueDPView(), isActive: $allowToGrade) {
+            NavigationLink(destination:  /*TODO: NEED TO CONTINUE TO CONNECT DATA THROUGHOUT*/ ClosedGuardBlueDPView(/*students: students), isActive: $allowToGrade*/)) {
                 EmptyView() // Invisible link to ClosedGuardBlueDPView
             }
         )
@@ -63,6 +64,6 @@ struct ROEView: View {
 
 struct ROEView_Previews: PreviewProvider {
     static var previews: some View {
-        ROEView()
+        ROEView(students: []) // Empty array for preview purposes
     }
 }

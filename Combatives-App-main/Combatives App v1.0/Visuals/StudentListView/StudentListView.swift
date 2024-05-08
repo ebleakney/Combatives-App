@@ -64,6 +64,7 @@ struct StudentListView: View {
     var classId: String
     @StateObject private var viewModel: StudentListViewModel
     @State private var isAddingStudent = false
+    @State private var showingROEView = false // State to control ROEView presentation
     @Environment(\.presentationMode) var presentationMode
 
     init(classId: String) {
@@ -82,11 +83,14 @@ struct StudentListView: View {
                 .onDelete(perform: deleteStudents)
             }
             .navigationTitle("Students")
-            .navigationBarItems(leading: Button("Add Student") {
-                isAddingStudent = true
+            .navigationBarItems(leading: Button("Create GR Matchup") {
+                showingROEView = true // Trigger the ROEView presentation
             }, trailing: Button("Done") {
                 presentationMode.wrappedValue.dismiss()
             })
+            .sheet(isPresented: $showingROEView) {
+                ROEView(students: viewModel.students) // Assuming ROEView takes an array of students
+            }
             .sheet(isPresented: $isAddingStudent) {
                 AddStudentView(classId: classId)
             }

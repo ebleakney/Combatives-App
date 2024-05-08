@@ -6,7 +6,7 @@ import SwiftUI
 
 struct StudentView: View {
     var student: DBStudent
-    @State private var showAddGradeView = false  // State to control the presentation of AddGradeView
+    //@State private var showAddGradeView = false  // State to control the presentation of AddGradeView
 
     var body: some View {
         NavigationStack {
@@ -52,9 +52,9 @@ struct StudentView: View {
                 Spacer() // This spacer pushes all content up
             }
             .navigationBarTitle("Student Details", displayMode: .inline)
-            .sheet(isPresented: $showAddGradeView) {
-                AddGradeView(isPresented: $showAddGradeView, studentId: student.id)
-            }
+            //.sheet(isPresented: $showAddGradeView) {
+            //    AddGradeView(isPresented: $showAddGradeView, studentId: student.id)
+            //}
         }
     }
 }
