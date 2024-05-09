@@ -8,9 +8,6 @@
 import SwiftUI
 import Combine
 
-import SwiftUI
-import Combine
-
 struct GridView: View {
     @StateObject private var viewModel = GridViewViewModel()
     let columns = [GridItem(.adaptive(minimum: 160), spacing: 20)]

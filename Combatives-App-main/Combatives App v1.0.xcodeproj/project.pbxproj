@@ -190,14 +190,14 @@
 		3F61ECC72BBDC23100B2EDA3 /* GradePositions */ = {
 			isa = PBXGroup;
 			children = (
-				3F61ECC52BBDC1E000B2EDA3 /* RearMtGreyDP.swift */,
-				3F7CC1982B5ED1F500A9E3ED /* RearMtBlueDP.swift */,
-				3F61ECCA2BBDC2B900B2EDA3 /* FrontMtGreyDP.swift */,
-				3F61ECC82BBDC2A400B2EDA3 /* FrontMtBlueDP.swift */,
-				3F61ECCE2BBDC3D200B2EDA3 /* SideMtGreyDP.swift */,
-				3F61ECCC2BBDC3BA00B2EDA3 /* SideMtBlueDP.swift */,
-				3F61ECD22BBDC46700B2EDA3 /* ClosedGuardGreyDP.swift */,
 				3F61ECD02BBDC45B00B2EDA3 /* ClosedGuardBlueDP.swift */,
+				3F61ECD22BBDC46700B2EDA3 /* ClosedGuardGreyDP.swift */,
+				3F61ECCC2BBDC3BA00B2EDA3 /* SideMtBlueDP.swift */,
+				3F61ECCE2BBDC3D200B2EDA3 /* SideMtGreyDP.swift */,
+				3F61ECC82BBDC2A400B2EDA3 /* FrontMtBlueDP.swift */,
+				3F61ECCA2BBDC2B900B2EDA3 /* FrontMtGreyDP.swift */,
+				3F7CC1982B5ED1F500A9E3ED /* RearMtBlueDP.swift */,
+				3F61ECC52BBDC1E000B2EDA3 /* RearMtGreyDP.swift */,
 			);
 			path = GradePositions;
 			sourceTree = "<group>";

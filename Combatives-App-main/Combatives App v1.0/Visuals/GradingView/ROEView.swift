@@ -63,7 +63,7 @@ struct ROEView: View {
             .padding()
             .navigationDestination(isPresented: $allowToGrade) {
                 // RearMtGreyDPView should be prepared to handle `students` if necessary.
-                RearMountGreyDPView(students: students)
+                ClosedGuardBlueDPView()
             }
         }
     }

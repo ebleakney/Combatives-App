@@ -1,3 +1,8 @@
+//
+// RearMtBlueDP.swift
+//
+//
+
 import SwiftUI
 
 
@@ -81,9 +86,9 @@ struct RearMountBlueDPView: View {
                 
                 Spacer()
                 
-//                NavigationLink(destination: RearMountGreyDPView(students: students), isActive: $navigateToRearMtGreyView) {
-//                    EmptyView() // Invisible link to NextView
-//                }
+                NavigationLink(destination: RearMountGreyDPView(), isActive: $navigateToRearMtGreyView) {
+                  EmptyView() // Invisible link to NextView
+                }
                 
                 Button(action: {
                     // Placeholder action for the next button

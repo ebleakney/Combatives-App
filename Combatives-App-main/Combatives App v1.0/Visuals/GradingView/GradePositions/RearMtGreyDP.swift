@@ -1,8 +1,12 @@
+//
+// RearMtGreyDP.swift
+//
+//
+
 import SwiftUI
 
 
 struct RearMountGreyDPView: View {
-    var students: [DBStudent]
     
     @State private var dpScoringItems: [ScoringItem] = [
         ScoringItem(description: "Lost position or established closed or 1/2 guard (top/bottom)", points: 0, isExtraPoints: false),
