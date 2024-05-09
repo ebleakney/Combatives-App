@@ -1,3 +1,10 @@
+//
+//  HomeScreenView.swift
+//  Combatives App v1.0
+//
+//  Created by Ethan Bleakney on 5/9/24.
+//
+
 import SwiftUI
 
 struct HomeScreenView: View {
@@ -15,12 +22,6 @@ struct HomeScreenView: View {
             }
             .padding(.top)
             .padding(.trailing) // Add padding to shift UserProfileView to the right
-//            .overlay(
-//                ProfileView(showSignInView: $showSignInView)
-//                    .padding(.bottom)
-//                    .padding(.trailing)
-//                , alignment: .topTrailing
-//            )
         }
         .frame(minWidth: 800, minHeight: 600)
     }
