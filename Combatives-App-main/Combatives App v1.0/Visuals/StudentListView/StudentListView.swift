@@ -9,9 +9,11 @@ import SwiftUI
 import FirebaseFirestore
 
 class StudentListViewModel: ObservableObject {
-    @Published var students: [DBStudent] = []
+    @Published var studentGroups: [String: [DBStudent]] = [:]
     var classId: String
     private var classListener: ListenerRegistration?
+
+    private let weightClasses = [125, 133, 141, 149, 157, 165, 174, 187, 195, 205]
 
     init(classId: String) {
         self.classId = classId
@@ -19,7 +21,7 @@ class StudentListViewModel: ObservableObject {
     }
 
     deinit {
-        classListener?.remove()  // Remove listener when the view model is deallocated
+        classListener?.remove()
     }
 
     func subscribeToClassUpdates() {
@@ -54,17 +56,36 @@ class StudentListViewModel: ObservableObject {
         }
 
         group.notify(queue: .main) { [weak self] in
-            self?.students = fetchedStudents.sorted(by: { $0.name ?? "" < $1.name ?? "" }) // Sort if needed
+            self?.groupStudentsByWeight(students: fetchedStudents)
         }
     }
+
+    private func groupStudentsByWeight(students: [DBStudent]) {
+        var groups: [String: [DBStudent]] = [:]
+        for student in students {
+            let weightClass = classifyWeight(weight: student.weight ?? 0)
+            groups[weightClass, default: []].append(student)
+        }
+        self.studentGroups = groups.mapValues { $0.sorted { ($0.name ?? "") < ($1.name ?? "") } }
+    }
+
+    private func classifyWeight(weight: Int) -> String {
+        for w in weightClasses {
+            if weight <= w + 8 {
+                return "\(max(0, w - 8))-\(w + 8) lbs"
+            }
+        }
+        return "205+ lbs"
+    }
 }
+
 
 
 struct StudentListView: View {
     var classId: String
     @StateObject private var viewModel: StudentListViewModel
     @State private var isAddingStudent = false
-    @State private var showingROEView = false // State to control ROEView presentation
+    @State private var showingROEView = false
     @Environment(\.presentationMode) var presentationMode
 
     init(classId: String) {
@@ -75,39 +96,57 @@ struct StudentListView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(viewModel.students, id: \.id) { student in
-                    NavigationLink(destination: StudentView(student: student)) {
-                        Text(student.name ?? "No Name")
+                ForEach(viewModel.studentGroups.keys.sorted(), id: \.self) { key in
+                    Section(header: Text(key)) {
+                        ForEach(viewModel.studentGroups[key] ?? [], id: \.id) { student in
+                            NavigationLink(destination: StudentView(student: student)) {
+                                HStack {
+                                    Text(student.name ?? "No Name")
+                                    Spacer()
+                                    Text("\(student.weight ?? 0) lbs - \(student.gender ?? "N/A")")
+                                }
+                            }
+                        }
                     }
                 }
-                .onDelete(perform: deleteStudents)
             }
             .navigationTitle("Students")
-            .navigationBarItems(leading: Button("Create GR Matchup") {
-                showingROEView = true // Trigger the ROEView presentation
-            }, trailing: Button("Done") {
-                presentationMode.wrappedValue.dismiss()
-            })
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Done") {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                }
+                ToolbarItemGroup(placement: .bottomBar) {
+                    Button("Create GR Matchup") {
+                        showingROEView = true
+                    }
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(10)
+
+                    Button("Add Student") {
+                        isAddingStudent = true
+                    }
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.green)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(10)
+                }
+            }
             .sheet(isPresented: $showingROEView) {
-                ROEView(students: viewModel.students) // Assuming ROEView takes an array of students
+                ROEView(students: viewModel.studentGroups.values.flatMap { $0 })
             }
             .sheet(isPresented: $isAddingStudent) {
                 AddStudentView(classId: classId)
             }
         }
     }
-    
-    private func deleteStudents(at offsets: IndexSet) {
-        for index in offsets {
-            let student = viewModel.students[index]
-            Task {
-                do {
-                    try await StudentManager.shared.deleteStudent(studentId: student.id)
-                    viewModel.students.remove(at: index)
-                } catch {
-                    print("Failed to delete student: \(error.localizedDescription)")
-                }
-            }
-        }
-    }
 }
+
+
+
+

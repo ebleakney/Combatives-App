@@ -2,6 +2,8 @@ import SwiftUI
 
 
 struct RearMountGreyDPView: View {
+    var students: [DBStudent]
+    
     @State private var dpScoringItems: [ScoringItem] = [
         ScoringItem(description: "Lost position or established closed or 1/2 guard (top/bottom)", points: 0, isExtraPoints: false),
         ScoringItem(description: "Established front, knee, or side mount", points: 3, isExtraPoints: false),
@@ -109,8 +111,8 @@ struct RearMountGreyDPView: View {
     }
 }
 
-struct RearMountGreyView_Previews: PreviewProvider {
-    static var previews: some View {
-        RearMountGreyDPView()
-    }
-}
+//struct RearMountGreyView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RearMountGreyDPView()
+//    }
+//}

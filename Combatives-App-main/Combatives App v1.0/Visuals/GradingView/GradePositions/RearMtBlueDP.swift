@@ -2,6 +2,8 @@ import SwiftUI
 
 
 struct RearMountBlueDPView: View {
+    //var students: [DBStudent]
+    
     @State private var dpScoringItems: [ScoringItem] = [
         ScoringItem(description: "Lost position or established closed or 1/2 guard (top/bottom)", points: 0, isExtraPoints: false),
         ScoringItem(description: "Established front, knee, or side mount", points: 3, isExtraPoints: false),
@@ -79,9 +81,9 @@ struct RearMountBlueDPView: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: RearMountGreyDPView(), isActive: $navigateToRearMtGreyView) {
-                    EmptyView() // Invisible link to NextView
-                }
+//                NavigationLink(destination: RearMountGreyDPView(students: students), isActive: $navigateToRearMtGreyView) {
+//                    EmptyView() // Invisible link to NextView
+//                }
                 
                 Button(action: {
                     // Placeholder action for the next button

@@ -97,4 +97,9 @@ final class ClassManager {
     func updateClass(DBClass: DBClass) async throws {
         try classDocument(classId: DBClass.classId).setData(from: DBClass, merge: true)
     }
+    
+    func deleteClass(classId: String) async throws {
+        let classDoc = classDocument(classId: classId)
+        try await classDoc.delete()
+    }
 }
