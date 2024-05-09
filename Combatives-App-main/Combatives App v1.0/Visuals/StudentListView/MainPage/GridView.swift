@@ -8,12 +8,8 @@
 import SwiftUI
 import Combine
 
-
-
-
-
-
-
+import SwiftUI
+import Combine
 
 struct GridView: View {
     @StateObject private var viewModel = GridViewViewModel()
@@ -22,63 +18,45 @@ struct GridView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack {
-                    if !viewModel.isSelectionMode {
-                        Button("Select Classes") {
-                            viewModel.enterSelectionMode()
-                        }
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                        .frame(maxWidth: .infinity, alignment: .trailing)
-                        .padding()
-                    } else {
-                        HStack {
-                            Button("Cancel Selection") {
-                                viewModel.cancelSelectionMode()
-                            }
-                            .padding()
-                            .background(Color.gray)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-
-                            Button("Delete Selected Classes") {
-                                showingDeleteConfirmation = true
-                            }
-                            .padding()
-                            .background(Color.red)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                        }
-                        .padding()
-                    }
-                    
-                    LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(viewModel.classes, id: \.classId) { dbClass in
-                            if viewModel.isSelectionMode {
-                                selectionView(for: dbClass)
-                            } else {
-                                NavigationLink(destination: ClassView(dbClass: dbClass)) {
-                                    classView(for: dbClass)
+            ZStack(alignment: .bottomTrailing) {
+                ScrollView {
+                    VStack {
+                        LazyVGrid(columns: columns, spacing: 20) {
+                            ForEach(viewModel.classes, id: \.classId) { dbClass in
+                                if viewModel.isSelectionMode {
+                                    selectionView(for: dbClass)
+                                } else {
+                                    NavigationLink(destination: ClassView(dbClass: dbClass)) {
+                                        classView(for: dbClass)
+                                    }
+                                    .buttonStyle(.plain)
                                 }
-                                .buttonStyle(.plain)
                             }
                         }
+                        .padding(.horizontal)
                     }
-                    .padding(.horizontal)
+                }
+                .confirmationDialog("Are you sure you want to delete these classes?", isPresented: $showingDeleteConfirmation, actions: {
+                    Button("Delete", role: .destructive) {
+                        viewModel.confirmDeletion()
+                    }
+                    Button("Cancel", role: .cancel) {}
+                })
+                
+                // Control buttons positioned as per selection mode
+                if viewModel.isSelectionMode {
+                    selectionButtons
+                        .transition(.move(edge: .trailing))
+                        .padding()
+                } else {
+                    selectClassesButton
+                        .transition(.move(edge: .trailing))
+                        .padding()
                 }
             }
-            .confirmationDialog("Are you sure you want to delete these classes?", isPresented: $showingDeleteConfirmation, actions: {
-                Button("Delete", role: .destructive) {
-                    viewModel.confirmDeletion()
-                }
-                Button("Cancel", role: .cancel) { }
-            })
         }
     }
-    
+
     @ViewBuilder
     private func classView(for dbClass: DBClass) -> some View {
         ZStack {
@@ -91,7 +69,7 @@ struct GridView: View {
         }
         .aspectRatio(1, contentMode: .fit)
     }
-    
+
     @ViewBuilder
     private func selectionView(for dbClass: DBClass) -> some View {
         classView(for: dbClass)
@@ -103,7 +81,41 @@ struct GridView: View {
                 viewModel.toggleSelection(classId: dbClass.classId)
             }
     }
+    
+    private var selectClassesButton: some View {
+        Button(action: {
+            viewModel.enterSelectionMode()
+        }) {
+            Label("Select Classes", systemImage: "pencil.circle")
+                .padding()
+                .background(Color.blue)
+                .foregroundColor(.white)
+                //.clipShape(Circle())
+                .shadow(radius: 5)
+        }
+    }
+    
+    private var selectionButtons: some View {
+        HStack {
+            Button("Cancel Selection") {
+                viewModel.cancelSelectionMode()
+            }
+            .padding()
+            .background(Color.gray)
+            .foregroundColor(.white)
+            .cornerRadius(10)
+
+            Button("Delete Selected Classes") {
+                showingDeleteConfirmation = true
+            }
+            .padding()
+            .background(Color.red)
+            .foregroundColor(.white)
+            .cornerRadius(10)
+        }
+    }
 }
+
 
 
 
