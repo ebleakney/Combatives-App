@@ -17,7 +17,8 @@ struct GreyGradeView: View {
     @State private var staminaSliderValue: Double = 0
     @Binding var liveGrapplingPoints: Int
     @Binding var liveTotalPoints: Int
-    
+    @Environment(\.presentationMode) var presentationMode
+
     private var letterGrade: String {
         switch liveGrapplingPoints {
         case 90...100:
@@ -46,155 +47,140 @@ struct GreyGradeView: View {
     }
     
     var body: some View {
-        ZStack {   // rounded rectangle border
-            RoundedRectangle(cornerRadius: 8)
-                .stroke(Color.black, lineWidth: 1)
-                .background(RoundedRectangle(cornerRadius: 8).foregroundColor(.white))
-            
-            VStack {
-                Text("Grey Final Grade") // Title for the grade sheet
-                    .font(.title)
-                    .padding()
+        VStack {
+            ScrollView {
                 VStack {
-                    HStack {
-                        Text("Name:")
-                            .font(.headline)
-                            .padding(.bottom, 2)
-                            .underline()
-                        
-                        TextField("Enter Student's Name", text: $studentName)
-                            .padding()
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .autocapitalization(.words)
-                    }
-                    .padding()
-                    
-                    HStack {
-                        Text("Weight:")
-                            .font(.headline)
-                            .padding(.bottom, 2)
-                            .underline()
-                        
-                        TextField("Enter Student's Weight", text: $studentWeight)
-                            .padding()
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .autocapitalization(.none)
-                            .keyboardType(.numberPad) // Set keyboard type to number pad
-                            .onReceive(Just(studentWeight)) { newValue in
-                                let filtered = newValue.filter { "0123456789".contains($0) }
-                                if filtered != newValue {
-                                    self.studentWeight = filtered
-                                }
-                            }
-                        
-                        Picker(selection: $selectedGender, label: Text("Gender")) {
-                            Text("Male").tag(0)
-                            Text("Female").tag(1)
-                        }
-                        .pickerStyle(SegmentedPickerStyle())
-                        .padding(.leading, 8)
-                    }
-                    .padding()
-                    
-                    HStack {
-                        Text("Notes:")
-                            .font(.headline)
-                            .padding(.bottom, 2)
-                            .underline()
-                        
-                        TextField("Optional", text: $optionalNotes)
-                            .padding()
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .autocapitalization(.words)
-                    }
-                    .padding()
-                    
-                    Text("Subjective Points:")
-                        .font(.headline)
-                        .padding(.bottom, 2)
-                        .underline()
-                    
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Text("Discipline:")
-                                .font(.headline)
-                                .padding(.trailing, 8)
-                            Slider(value: $disciplineSliderValue, in: -10...10, step: 1)
-                            Text("\(Int(disciplineSliderValue))")
-                        }
-                        Text("(-10 to 10 Points)")
-                            .padding(.trailing)
-                    }
-                    .padding()
-                    
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Text("Stamina:")
-                                .font(.headline)
-                                .padding(.trailing, 8)
-                            Slider(value: $staminaSliderValue, in: -10...10, step: 1)
-                            Text("\(Int(staminaSliderValue))")
-                        }
-                        Text("(-10 to 10 Points)")
-                            .padding(.trailing)
-                    }
-                    .padding()
-                    
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text("Live Grappling:")
-                                .font(.headline)
-                                .padding(.bottom, 2)
-                                .underline()
-                            Text("(Max 80 Points)")
-                                .padding(.trailing)
-                            Text("Total Points:")
-                                .font(.headline)
-                                .padding(.bottom, 2)
-                                .underline()
-                            Text("Letter Grade:")
-                                .font(.headline)
-                                .padding(.top)
-                                .underline()
-                        }
-                        
-                        Spacer() // Add Spacer to push the next view to the right
-                        VStack(alignment: .leading) {
-                            Text("\(liveGrapplingPoints)")
-                                .font(.headline)
-                                .padding(.bottom, 2)
-                                .foregroundColor(.blue)
-                            Text("")
-                                .padding(.trailing)
-                            Text("")
-                                .padding(.trailing)
-                            Text("\(liveTotalPoints)")
-                                .font(.headline)
-                                .padding(.bottom, 2)
-                                .foregroundColor(.blue)
-                            Text("")
-                                .padding(.trailing)
-                            Text("")
-                                .padding(.trailing)
-                            Text("\(letterGrade)")
-                                .font(.headline)
-                                .padding(.bottom, 2)
-                                .foregroundColor(.green)
-                        }
-                    }
-                    .padding()
-                    
-                    // TODO : Add a submit button that saves the whole grade
+                    formFields
+                    submitButton
                 }
+                .padding()
             }
+            .background(Color(.systemGroupedBackground))
+            .cornerRadius(8)
+        }
+        .navigationTitle("Grey Final Grade")
+    }
+    
+    private var formFields: some View {
+        VStack {
+            studentInfoSection
+            subjectivePointsSection
+            scoringSummarySection
+        }
+    }
+    
+    private var studentInfoSection: some View {
+        VStack {
+            Text("Student Information")
+                .font(.headline)
+                .padding(.bottom, 2)
+                .underline()
+            HStack {
+                Label("Name:", systemImage: "person.fill")
+                TextField("Enter Student's Name", text: $studentName)
+            }
+            HStack {
+                Label("Weight:", systemImage: "scalemass.fill")
+                TextField("Enter Student's Weight", text: $studentWeight)
+                    .keyboardType(.numberPad)
+                    .onReceive(Just(studentWeight)) { newValue in
+                        let filtered = newValue.filter { "0123456789".contains($0) }
+                        if filtered != newValue {
+                            self.studentWeight = filtered
+                        }
+                    }
+            }
+            genderPicker
+            notesField
+        }
+    }
+    
+    private var genderPicker: some View {
+        Picker(selection: $selectedGender, label: Text("Gender")) {
+            Text("Male").tag(0)
+            Text("Female").tag(1)
+        }
+        .pickerStyle(SegmentedPickerStyle())
+    }
+    
+    private var notesField: some View {
+        TextField("Optional Notes", text: $optionalNotes)
+    }
+    
+    private var subjectivePointsSection: some View {
+        VStack {
+            Text("Subjective Points")
+                .font(.headline)
+                .padding(.bottom, 2)
+                .underline()
+            SliderView(label: "Discipline", value: $disciplineSliderValue)
+            SliderView(label: "Stamina", value: $staminaSliderValue)
+        }
+    }
+    
+    private var scoringSummarySection: some View {
+        VStack {
+            Text("Scoring Summary")
+                .font(.headline)
+                .padding(.bottom, 2)
+                .underline()
+            HStack {
+                Text("Live Grappling:")
+                Spacer()
+                Text("\(liveGrapplingPoints)")
+            }
+            HStack {
+                Text("Total Points:")
+                Spacer()
+                Text("\(liveTotalPoints)")
+            }
+            HStack {
+                Text("Letter Grade:")
+                Spacer()
+                Text(letterGrade)
+            }
+        }
+    }
+    
+    private var submitButton: some View {
+        Button(action: submitAction) {
+            Text("Submit Grades")
+                .bold()
+                .foregroundColor(.white)
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.blue)
+                .cornerRadius(10)
+        }
+        .padding()
+    }
+    
+    private func submitAction() {
+        // Example action: print grades and navigate back
+        print("Submitting grades for \(studentName)")
+        presentationMode.wrappedValue.dismiss()
+    }
+}
+
+struct SliderView: View {
+    var label: String
+    @Binding var value: Double
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("\(label): \(Int(value))")
+            Slider(value: $value, in: -10...10, step: 1)
         }
     }
 }
 
-/*
-struct ReContentView_Previews: PreviewProvider {
+// Usage of the GreyGradeView needs a NavigationView wrapper in parent if standalone testing:
+
+struct GreyGradeView_Previews: PreviewProvider {
     static var previews: some View {
-        GreyGradeView(liveGrapplingPoints: .constant(0), liveTotalPoints: .constant(0))
+        NavigationView {
+            GreyGradeView(liveGrapplingPoints: .constant(50), liveTotalPoints: .constant(70))
+        }
     }
 }
-*/
+
