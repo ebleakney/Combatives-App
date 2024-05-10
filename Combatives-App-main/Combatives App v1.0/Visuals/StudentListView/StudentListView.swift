@@ -103,6 +103,11 @@ struct StudentListView: View {
                         ForEach(viewModel.studentGroups[key] ?? [], id: \.id) { student in
                             StudentRow(student: student, isSelectingMatchup: $isSelectingMatchup, selectedStudents: $selectedStudents)
                         }
+                        .onDelete { offsets in
+                            if !isSelectingMatchup {
+                                deleteStudents(from: key, at: offsets)
+                            }
+                        }
                     }
                 }
             }
@@ -154,8 +159,8 @@ struct StudentListView: View {
                     .padding()
                     .frame(maxWidth: .infinity)
                     .background(Color.green)
-                        .foregroundColor(Color.white)
-                        .cornerRadius(10)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(10)
                 }
             }
             .sheet(isPresented: $showingROEView) {
@@ -163,6 +168,20 @@ struct StudentListView: View {
             }
             .sheet(isPresented: $isAddingStudent) {
                 AddStudentView(classId: classId)
+            }
+        }
+    }
+
+    private func deleteStudents(from groupKey: String, at offsets: IndexSet) {
+        for index in offsets {
+            let student = viewModel.studentGroups[groupKey]?[index]
+            Task {
+                do {
+                    try await StudentManager.shared.deleteStudent(studentId: student?.id ?? "")
+                    viewModel.studentGroups[groupKey]?.remove(at: index)
+                } catch {
+                    print("Failed to delete student: \(error.localizedDescription)")
+                }
             }
         }
     }
@@ -206,9 +225,8 @@ struct StudentCell: View {
             Text("\(student.weight ?? 0) lbs - \(student.gender ?? "N/A")")
         }
         .background(isSelected ? Color.blue.opacity(0.2) : Color.clear)
+        .padding(.vertical, 4)
     }
 }
-
-
 
 
