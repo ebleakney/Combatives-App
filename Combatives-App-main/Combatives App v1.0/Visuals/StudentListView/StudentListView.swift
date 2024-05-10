@@ -86,6 +86,8 @@ struct StudentListView: View {
     @StateObject private var viewModel: StudentListViewModel
     @State private var isAddingStudent = false
     @State private var showingROEView = false
+    @State private var isSelectingMatchup = false
+    @State private var selectedStudents: [DBStudent] = []
     @Environment(\.presentationMode) var presentationMode
 
     init(classId: String) {
@@ -99,13 +101,7 @@ struct StudentListView: View {
                 ForEach(viewModel.studentGroups.keys.sorted(), id: \.self) { key in
                     Section(header: Text(key)) {
                         ForEach(viewModel.studentGroups[key] ?? [], id: \.id) { student in
-                            NavigationLink(destination: StudentView(student: student)) {
-                                HStack {
-                                    Text(student.name ?? "No Name")
-                                    Spacer()
-                                    Text("\(student.weight ?? 0) lbs - \(student.gender ?? "N/A")")
-                                }
-                            }
+                            StudentRow(student: student, isSelectingMatchup: $isSelectingMatchup, selectedStudents: $selectedStudents)
                         }
                     }
                 }
@@ -118,14 +114,39 @@ struct StudentListView: View {
                     }
                 }
                 ToolbarItemGroup(placement: .bottomBar) {
-                    Button("Create GR Matchup") {
-                        showingROEView = true
+                    if !isSelectingMatchup {
+                        Button("Select Students for GR") {
+                            isSelectingMatchup = true
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue)
+                        .foregroundColor(Color.white)
+                        .cornerRadius(10)
+                    } else {
+                        Button("Exit Toggling") {
+                            isSelectingMatchup = false
+                            selectedStudents.removeAll()
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.red)
+                        .foregroundColor(Color.white)
+                        .cornerRadius(10)
                     }
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .foregroundColor(Color.white)
-                    .cornerRadius(10)
+
+                    if isSelectingMatchup && selectedStudents.count == 2 {
+                        Button("Continue") {
+                            showingROEView = true
+                            isSelectingMatchup = false // Reset selection mode after continuing
+                            selectedStudents.removeAll() // Clear selection
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.green)
+                        .foregroundColor(Color.white)
+                        .cornerRadius(10)
+                    }
 
                     Button("Add Student") {
                         isAddingStudent = true
@@ -133,17 +154,58 @@ struct StudentListView: View {
                     .padding()
                     .frame(maxWidth: .infinity)
                     .background(Color.green)
-                    .foregroundColor(Color.white)
-                    .cornerRadius(10)
+                        .foregroundColor(Color.white)
+                        .cornerRadius(10)
                 }
             }
             .sheet(isPresented: $showingROEView) {
-                ROEView(students: viewModel.studentGroups.values.flatMap { $0 })
+                ROEView(students: selectedStudents)
             }
             .sheet(isPresented: $isAddingStudent) {
                 AddStudentView(classId: classId)
             }
         }
+    }
+}
+
+struct StudentRow: View {
+    var student: DBStudent
+    @Binding var isSelectingMatchup: Bool
+    @Binding var selectedStudents: [DBStudent]
+
+    var body: some View {
+        if !isSelectingMatchup {
+            NavigationLink(destination: StudentView(student: student)) {
+                StudentCell(student: student, isSelected: false)
+            }
+        } else {
+            StudentCell(student: student, isSelected: selectedStudents.contains { $0.id == student.id })
+            .onTapGesture {
+                toggleSelection(for: student)
+            }
+        }
+    }
+
+    private func toggleSelection(for student: DBStudent) {
+        if let index = selectedStudents.firstIndex(where: { $0.id == student.id }) {
+            selectedStudents.remove(at: index)
+        } else if selectedStudents.count < 2 {
+            selectedStudents.append(student)
+        }
+    }
+}
+
+struct StudentCell: View {
+    var student: DBStudent
+    var isSelected: Bool
+
+    var body: some View {
+        HStack {
+            Text(student.name ?? "No Name")
+            Spacer()
+            Text("\(student.weight ?? 0) lbs - \(student.gender ?? "N/A")")
+        }
+        .background(isSelected ? Color.blue.opacity(0.2) : Color.clear)
     }
 }
 
