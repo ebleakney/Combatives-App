@@ -17,7 +17,6 @@
 		3F61ECD12BBDC45B00B2EDA3 /* ClosedGuardBlueDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F61ECD02BBDC45B00B2EDA3 /* ClosedGuardBlueDP.swift */; };
 		3F61ECD32BBDC46700B2EDA3 /* ClosedGuardGreyDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F61ECD22BBDC46700B2EDA3 /* ClosedGuardGreyDP.swift */; };
 		3F61ECD72BD0311900B2EDA3 /* StandingGR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F61ECD62BD0311900B2EDA3 /* StandingGR.swift */; };
-		3F7CC1972B59940800A9E3ED /* BlueGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7CC1962B59940800A9E3ED /* BlueGrade.swift */; };
 		3F7CC1992B5ED1F500A9E3ED /* RearMtBlueDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7CC1982B5ED1F500A9E3ED /* RearMtBlueDP.swift */; };
 		3F8442062B7E7A3900758C38 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8442052B7E7A3900758C38 /* SidebarView.swift */; };
 		3F84420E2B7E7AC700758C38 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F84420D2B7E7AC700758C38 /* GridView.swift */; };
@@ -25,10 +24,11 @@
 		3F8442182B8E4A0000758C38 /* AddStudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8442172B8E4A0000758C38 /* AddStudentView.swift */; };
 		3F84421B2B8E4AD100758C38 /* GradeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F84421A2B8E4AD100758C38 /* GradeListView.swift */; };
 		3F84421D2B8E547600758C38 /* AddGradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F84421C2B8E547600758C38 /* AddGradeView.swift */; };
-		3F97DFB72BE947B40020171A /* GreyGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F97DFB62BE947B40020171A /* GreyGrade.swift */; };
 		651813D52BED0F71000DD3C6 /* ROEView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651813D42BED0F71000DD3C6 /* ROEView.swift */; };
 		651813D72BED24C4000DD3C6 /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651813D62BED24C4000DD3C6 /* HomeScreenView.swift */; };
 		651813D92BED2B28000DD3C6 /* GridViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651813D82BED2B28000DD3C6 /* GridViewViewModel.swift */; };
+		651813DB2BEDCC81000DD3C6 /* BlueGradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651813DA2BEDCC81000DD3C6 /* BlueGradeView.swift */; };
+		651813DD2BEDCCA5000DD3C6 /* GreyGradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651813DC2BEDCCA5000DD3C6 /* GreyGradeView.swift */; };
 		6528D8712B50527F00B7BFFA /* Combatives_App_v1_0App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6528D8702B50527F00B7BFFA /* Combatives_App_v1_0App.swift */; };
 		6528D8732B50527F00B7BFFA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6528D8722B50527F00B7BFFA /* ContentView.swift */; };
 		6528D8752B50528200B7BFFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6528D8742B50528200B7BFFA /* Assets.xcassets */; };
@@ -96,7 +96,6 @@
 		3F61ECD02BBDC45B00B2EDA3 /* ClosedGuardBlueDP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosedGuardBlueDP.swift; sourceTree = "<group>"; };
 		3F61ECD22BBDC46700B2EDA3 /* ClosedGuardGreyDP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosedGuardGreyDP.swift; sourceTree = "<group>"; };
 		3F61ECD62BD0311900B2EDA3 /* StandingGR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingGR.swift; sourceTree = "<group>"; };
-		3F7CC1962B59940800A9E3ED /* BlueGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueGrade.swift; sourceTree = "<group>"; };
 		3F7CC1982B5ED1F500A9E3ED /* RearMtBlueDP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RearMtBlueDP.swift; sourceTree = "<group>"; };
 		3F8442052B7E7A3900758C38 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		3F84420D2B7E7AC700758C38 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
@@ -104,10 +103,11 @@
 		3F8442172B8E4A0000758C38 /* AddStudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentView.swift; sourceTree = "<group>"; };
 		3F84421A2B8E4AD100758C38 /* GradeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeListView.swift; sourceTree = "<group>"; };
 		3F84421C2B8E547600758C38 /* AddGradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGradeView.swift; sourceTree = "<group>"; };
-		3F97DFB62BE947B40020171A /* GreyGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreyGrade.swift; sourceTree = "<group>"; };
 		651813D42BED0F71000DD3C6 /* ROEView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROEView.swift; sourceTree = "<group>"; };
 		651813D62BED24C4000DD3C6 /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
 		651813D82BED2B28000DD3C6 /* GridViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewViewModel.swift; sourceTree = "<group>"; };
+		651813DA2BEDCC81000DD3C6 /* BlueGradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueGradeView.swift; sourceTree = "<group>"; };
+		651813DC2BEDCCA5000DD3C6 /* GreyGradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreyGradeView.swift; sourceTree = "<group>"; };
 		6528D86D2B50527F00B7BFFA /* Combatives App v1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Combatives App v1.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6528D8702B50527F00B7BFFA /* Combatives_App_v1_0App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combatives_App_v1_0App.swift; sourceTree = "<group>"; };
 		6528D8722B50527F00B7BFFA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -213,8 +213,8 @@
 		3F7CC1952B5993E300A9E3ED /* GradingView */ = {
 			isa = PBXGroup;
 			children = (
-				3F7CC1962B59940800A9E3ED /* BlueGrade.swift */,
-				3F97DFB62BE947B40020171A /* GreyGrade.swift */,
+				651813DA2BEDCC81000DD3C6 /* BlueGradeView.swift */,
+				651813DC2BEDCCA5000DD3C6 /* GreyGradeView.swift */,
 				3F61ECC72BBDC23100B2EDA3 /* GradePositions */,
 				651813D42BED0F71000DD3C6 /* ROEView.swift */,
 				3F61ECC12BBDB58800B2EDA3 /* ScoringItemStruct.swift */,
@@ -570,11 +570,11 @@
 				6583CE9A2BBB250B009569F3 /* UserManager.swift in Sources */,
 				6543528B2B59924B0095F276 /* InitLogin.swift in Sources */,
 				657B38702BE99589005BE647 /* StudentView.swift in Sources */,
+				651813DD2BEDCCA5000DD3C6 /* GreyGradeView.swift in Sources */,
 				65FE28452BD81C6F00D4DC55 /* ActionsView.swift in Sources */,
 				651813D72BED24C4000DD3C6 /* HomeScreenView.swift in Sources */,
 				3F61ECCF2BBDC3D200B2EDA3 /* SideMtGreyDP.swift in Sources */,
 				654352DD2B617CF40095F276 /* SettingsView.swift in Sources */,
-				3F97DFB72BE947B40020171A /* GreyGrade.swift in Sources */,
 				3F61ECC22BBDB58800B2EDA3 /* ScoringItemStruct.swift in Sources */,
 				654352FF2B644BFB0095F276 /* ResetPasswordView.swift in Sources */,
 				3F61ECD32BBDC46700B2EDA3 /* ClosedGuardGreyDP.swift in Sources */,
@@ -585,7 +585,6 @@
 				6543528B2B59924B0095F276 /* InitLogin.swift in Sources */,
 				3F61ECD72BD0311900B2EDA3 /* StandingGR.swift in Sources */,
 				3F61ECC42BBDB5A900B2EDA3 /* ScoringRow.swift in Sources */,
-				3F7CC1972B59940800A9E3ED /* BlueGrade.swift in Sources */,
 				6528D8732B50527F00B7BFFA /* ContentView.swift in Sources */,
 				651813D92BED2B28000DD3C6 /* GridViewViewModel.swift in Sources */,
 				657FAD582BA0C63D00B4A548 /* ProfileView.swift in Sources */,
@@ -594,6 +593,7 @@
 				3F84421D2B8E547600758C38 /* AddGradeView.swift in Sources */,
 				65FE283E2BD815F800D4DC55 /* SidebarSelection.swift in Sources */,
 				6543528F2B599C880095F276 /* AuthenticationManager.swift in Sources */,
+				651813DB2BEDCC81000DD3C6 /* BlueGradeView.swift in Sources */,
 				3F61ECCB2BBDC2B900B2EDA3 /* FrontMtGreyDP.swift in Sources */,
 				3F8442112B7E7B7400758C38 /* ClassView.swift in Sources */,
 				3F61ECD12BBDC45B00B2EDA3 /* ClosedGuardBlueDP.swift in Sources */,

@@ -1,7 +1,14 @@
+//
+//  GreyGradeView.swift
+//  Combatives App v1.0
+//
+//  Created by Ethan Bleakney on 5/9/24.
+//
+
 import SwiftUI
 import Combine
-/*
-struct GradeSheetView: View {
+
+struct GreyGradeView: View {
     @State private var studentName: String = ""
     @State private var studentWeight: String = ""
     @State private var selectedGender: Int = 0 // 0 for male, 1 for female
@@ -45,6 +52,9 @@ struct GradeSheetView: View {
                 .background(RoundedRectangle(cornerRadius: 8).foregroundColor(.white))
             
             VStack {
+                Text("Grey Final Grade") // Title for the grade sheet
+                    .font(.title)
+                    .padding()
                 VStack {
                     HStack {
                         Text("Name:")
@@ -181,9 +191,10 @@ struct GradeSheetView: View {
     }
 }
 
+/*
 struct ReContentView_Previews: PreviewProvider {
     static var previews: some View {
-        GradeSheetView(liveGrapplingPoints: .constant(0), liveTotalPoints: .constant(0))
+        GreyGradeView(liveGrapplingPoints: .constant(0), liveTotalPoints: .constant(0))
     }
 }
 */

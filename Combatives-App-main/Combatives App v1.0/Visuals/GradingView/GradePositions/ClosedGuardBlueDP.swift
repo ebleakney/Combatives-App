@@ -30,76 +30,78 @@ struct ClosedGuardBlueDPView: View {
     @State private var navigateToClosedGuardGreyView = false // State variable to control navigation to the next view
 
     var body: some View {
-        VStack {
-            Text(timerText)
-                .font(.title)
-                .padding()
-                .onReceive(timer) { _ in
-                    if self.timerIsRunning {
-                        self.timeElapsed += 1
+        NavigationStack {
+            VStack {
+                Text(timerText)
+                    .font(.title)
+                    .padding()
+                    .onReceive(timer) { _ in
+                        if self.timerIsRunning {
+                            self.timeElapsed += 1
+                        }
+                    }
+                
+                List {
+                    Section(header: Text("Closed Guard (DP)").foregroundColor(.black).padding().background(Color.blue)) {
+                        ForEach(dpScoringItems.indices, id: \.self) { index in
+                            ScoringRow(item: self.$dpScoringItems[index])
+                        }
+                    }
+                    Section(header: Text("Closed Guard (NDP)").foregroundColor(.black).padding().background(Color.gray)) {
+                        ForEach(ndpScoringItems.indices, id: \.self) { index in
+                            ScoringRow(item: self.$ndpScoringItems[index])
+                        }
                     }
                 }
-            
-            List {
-                Section(header: Text("Closed Guard (DP)").foregroundColor(.black).padding().background(Color.blue)) {
-                    ForEach(dpScoringItems.indices, id: \.self) { index in
-                        ScoringRow(item: self.$dpScoringItems[index])
+                .listStyle(GroupedListStyle())
+                .background(Color(.systemGroupedBackground)) // Matches the typical background color for grouped lists
+                
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        self.timerIsRunning.toggle()
+                    }) {
+                        Text(timerIsRunning ? "Stop Timer" : "Start Timer")
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(timerIsRunning ? Color.red : Color.green)
+                            .cornerRadius(8)
                     }
-                }
-                Section(header: Text("Closed Guard (NDP)").foregroundColor(.black).padding().background(Color.gray)) {
-                    ForEach(ndpScoringItems.indices, id: \.self) { index in
-                        ScoringRow(item: self.$ndpScoringItems[index])
+                    .padding(.horizontal)
+                    
+                    Button(action: {
+                        self.timerIsRunning = false
+                        self.timeElapsed = 0
+                    }) {
+                        Text("Reset Timer")
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color.blue)
+                            .cornerRadius(8)
                     }
+                    .padding(.horizontal)
+                    
+                    Spacer()
+                    
+                    NavigationLink(destination: ClosedGuardGreyDPView(), isActive: $navigateToClosedGuardGreyView) {
+                        EmptyView() // Invisible link to NextView
+                    }
+                    
+                    Button(action: {
+                        // Placeholder action for the next button
+                        print("Next button tapped")
+                        self.navigateToClosedGuardGreyView = true // Activate navigation to NextView
+                    }) {
+                        Image(systemName: "arrow.right.circle.fill")
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                            .foregroundColor(.blue)
+                    }
+                    .padding(.trailing, 20)
+                    .padding(.bottom, 20)
                 }
+                .padding(.vertical)
             }
-            .listStyle(GroupedListStyle())
-            .background(Color(.systemGroupedBackground)) // Matches the typical background color for grouped lists
-            
-            HStack {
-                Spacer()
-                Button(action: {
-                    self.timerIsRunning.toggle()
-                }) {
-                    Text(timerIsRunning ? "Stop Timer" : "Start Timer")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(timerIsRunning ? Color.red : Color.green)
-                        .cornerRadius(8)
-                }
-                .padding(.horizontal)
-                
-                Button(action: {
-                    self.timerIsRunning = false
-                    self.timeElapsed = 0
-                }) {
-                    Text("Reset Timer")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.blue)
-                        .cornerRadius(8)
-                }
-                .padding(.horizontal)
-                
-                Spacer()
-                
-                NavigationLink(destination: ClosedGuardGreyDPView(), isActive: $navigateToClosedGuardGreyView) {
-                    EmptyView() // Invisible link to NextView
-                }
-                
-                Button(action: {
-                    // Placeholder action for the next button
-                    print("Next button tapped")
-                    self.navigateToClosedGuardGreyView = true // Activate navigation to NextView
-                }) {
-                    Image(systemName: "arrow.right.circle.fill")
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                        .foregroundColor(.blue)
-                }
-                .padding(.trailing, 20)
-                .padding(.bottom, 20)
-            }
-            .padding(.vertical)
         }
     }
 

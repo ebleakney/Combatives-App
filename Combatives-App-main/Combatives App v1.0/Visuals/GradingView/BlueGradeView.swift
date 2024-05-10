@@ -1,7 +1,14 @@
+//
+//  BlueGradeView.swift
+//  Combatives App v1.0
+//
+//  Created by Ethan Bleakney on 5/9/24.
+//
+
 import SwiftUI
 import Combine
 
-struct GradeSheetView: View {
+struct BlueGradeView: View {
     @State private var studentName: String = ""
     @State private var studentWeight: String = ""
     @State private var selectedGender: Int = 0 // 0 for male, 1 for female
@@ -10,6 +17,8 @@ struct GradeSheetView: View {
     @State private var staminaSliderValue: Double = 0
     @Binding var liveGrapplingPoints: Int
     @Binding var liveTotalPoints: Int
+    
+    @State private var navigateToGreyGrade = false // State to manage navigation
     
     private var letterGrade: String {
         switch liveGrapplingPoints {
@@ -39,12 +48,16 @@ struct GradeSheetView: View {
     }
     
     var body: some View {
-        ZStack {   // rounded rectangle border
+        ZStack {
             RoundedRectangle(cornerRadius: 8)
                 .stroke(Color.black, lineWidth: 1)
                 .background(RoundedRectangle(cornerRadius: 8).foregroundColor(.white))
             
             VStack {
+                Text("Blue Final Grade") // Title for the grade sheet
+                    .font(.title)
+                    .padding()
+
                 VStack {
                     HStack {
                         Text("Name:")
@@ -146,26 +159,14 @@ struct GradeSheetView: View {
                                 .font(.headline)
                                 .padding(.top)
                                 .underline()
-                        }
-                        
-                        Spacer() // Add Spacer to push the next view to the right
-                        VStack(alignment: .leading) {
                             Text("\(liveGrapplingPoints)")
                                 .font(.headline)
                                 .padding(.bottom, 2)
                                 .foregroundColor(.blue)
-                            Text("")
-                                .padding(.trailing)
-                            Text("")
-                                .padding(.trailing)
                             Text("\(liveTotalPoints)")
                                 .font(.headline)
                                 .padding(.bottom, 2)
                                 .foregroundColor(.blue)
-                            Text("")
-                                .padding(.trailing)
-                            Text("")
-                                .padding(.trailing)
                             Text("\(letterGrade)")
                                 .font(.headline)
                                 .padding(.bottom, 2)
@@ -173,8 +174,18 @@ struct GradeSheetView: View {
                         }
                     }
                     .padding()
+
+                    NavigationLink(destination: GreyGradeView(liveGrapplingPoints: $liveGrapplingPoints, liveTotalPoints: $liveTotalPoints), isActive: $navigateToGreyGrade) {
+                        EmptyView() // Invisible link
+                    }
                     
-                    // TODO : Add a submit button that saves the whole grade
+                    Button("Submit") {
+                        navigateToGreyGrade = true // Trigger navigation when button is tapped
+                    }
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Color.blue)
+                    .cornerRadius(10)
                 }
             }
         }
@@ -183,6 +194,6 @@ struct GradeSheetView: View {
 
 struct ReContentView_Previews: PreviewProvider {
     static var previews: some View {
-        GradeSheetView(liveGrapplingPoints: .constant(0), liveTotalPoints: .constant(0))
+        BlueGradeView(liveGrapplingPoints: .constant(0), liveTotalPoints: .constant(0))
     }
 }
