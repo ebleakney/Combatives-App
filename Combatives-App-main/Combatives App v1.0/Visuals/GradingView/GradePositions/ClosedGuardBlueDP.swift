@@ -43,16 +43,19 @@ struct ClosedGuardBlueDPView: View {
                 
                 List {
                     Section(header: Text("Closed Guard (DP)").foregroundColor(.black).padding().background(Color.blue)) {
-                        ForEach(dpScoringItems.indices, id: \.self) { index in
-                            ScoringRow(item: self.$dpScoringItems[index])
+                            ForEach(dpScoringItems.indices, id: \.self) { index in
+                                ScoringRow(item: $dpScoringItems[index]) { points, isExtraPoints in
+                                    gradeManager.updateBluePlayerScore(points: points, isExtraPoints: isExtraPoints)
+                                }
+                            }
                         }
-                    }
-                    Section(header: Text("Closed Guard (NDP)").foregroundColor(.black).padding().background(Color.gray)) {
-                        ForEach(ndpScoringItems.indices, id: \.self) { index in
-                            ScoringRow(item: self.$ndpScoringItems[index])
+                    Section(header: Text("Closed Guard (NDP)").foregroundColor(.black).padding().background(Color.grey)) {
+                            ForEach(dpScoringItems.indices, id: \.self) { index in
+                                ScoringRow(item: $ndpScoringItems[index]) { points, isExtraPoints in
+                                    gradeManager.updateGreyPlayerScore(points: points, isExtraPoints: isExtraPoints)
+                                }
+                            }
                         }
-                    }
-                }
                 .listStyle(GroupedListStyle())
                 .background(Color(.systemGroupedBackground)) // Matches the typical background color for grouped lists
                 
