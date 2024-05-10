@@ -1,3 +1,9 @@
+//
+// ScoringItemStruct.swift
+//
+//
+
+
 import SwiftUI
 
 struct ScoringItem: Identifiable {
